@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="XLForm," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这次来点特别的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XLForm 表单库的复杂使用 - 地址选择器">
+<meta property="og:url" content="http://urm9ril.top/2017/06/25/XLForm-Complex-AreaPicker/index.html">
+<meta property="og:site_name" content="ooops 的小站">
+<meta property="og:description" content="这次来点特别的">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-section.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-section.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-area.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-area-done.gif">
+<meta property="og:updated_time" content="2018-06-25T09:54:11.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XLForm 表单库的复杂使用 - 地址选择器">
+<meta name="twitter:description" content="这次来点特别的">
+<meta name="twitter:image" content="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-section.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://urm9ril.top/2017/06/25/XLForm-Complex-AreaPicker/"/>
+
+
+
+
+
+  <title>XLForm 表单库的复杂使用 - 地址选择器 | ooops 的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ooops 的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><_`_></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://urm9ril.top/2017/06/25/XLForm-Complex-AreaPicker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ooops 的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">XLForm 表单库的复杂使用 - 地址选择器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T19:28:46+08:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/XLForm/" itemprop="url" rel="index">
+                    <span itemprop="name">XLForm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/25/XLForm-Complex-AreaPicker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/06/25/XLForm-Complex-AreaPicker/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/25/XLForm-Complex-AreaPicker/" class="leancloud_visitors" data-flag-title="XLForm 表单库的复杂使用 - 地址选择器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,894
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note info"><p>这次来点特别的 </p></div>
+<a id="more"></a>
+<h2 id="组头的使用"><a href="#组头的使用" class="headerlink" title="组头的使用."></a>组头的使用.</h2><p>根据上一篇博文<a href="http://urm9ril.top/2017/05/02/XLForm-usage/">XLForm 表单库使用说明</a>的介绍,简单改造一下,先创建只有两个组头的表单.</p>
+<p><code>ComplexConst</code> 常量文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 组头信息</span></div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> kCompanyInfo = <span class="string">@"公司信息"</span>;</div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> kContactInfo = <span class="string">@"联系人"</span>;</div></pre></td></tr></table></figure>
+<p><code>ComplexFactory</code> 表单创建工厂类文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)initForm &#123;</div><div class="line">    XLFormSectionDescriptor * companySection = [XLFormSectionDescriptor formSectionWithTitle:kCompanyInfo];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.form addFormSection:companySection];</div><div class="line">    </div><div class="line">    XLFormSectionDescriptor * contactSection = [XLFormSectionDescriptor formSectionWithTitle:kContactInfo];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.form addFormSection:contactSection];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下:</p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-section.png">
+<h3 id="自定义组头"><a href="#自定义组头" class="headerlink" title="自定义组头"></a>自定义组头</h3><p>我们需要利用一下代理方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section</div><div class="line"><span class="comment">// 控制组头高度</span></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section</div></pre></td></tr></table></figure></p>
+<p>我们先来自定义一个组头视图 <code>SectionHeaderView</code></p>
+<p><code>.h</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SectionHeaderView</span> : <span class="title">UIView</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithIndicatorColor:(<span class="built_in">UIColor</span> *)indicatorColor sectionTitle:(<span class="built_in">NSString</span> *)sectionTitle;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>.m</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SectionHeaderView</span>()</span></div><div class="line"></div><div class="line"><span class="comment">/** indicatorView - 指示器 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIView</span>       *indicatorView;</div><div class="line"><span class="comment">/** titleV - 标题视图 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UILabel</span>      *titleLabel;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SectionHeaderView</span> </span>&#123;</div><div class="line">    <span class="built_in">UIColor</span>     *_indicatorColor;</div><div class="line">    <span class="built_in">NSString</span>    *_sectionTitle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithIndicatorColor:(<span class="built_in">UIColor</span> *)indicatorColor sectionTitle:(<span class="built_in">NSString</span> *)sectionTitle &#123;</div><div class="line">    _indicatorColor = indicatorColor;</div><div class="line">    _sectionTitle = sectionTitle;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:<span class="built_in">CGRectZero</span>]) &#123;</div><div class="line">        [<span class="keyword">self</span> setupUI];</div><div class="line">        [<span class="keyword">self</span> makeConstraint];</div><div class="line">        </div><div class="line">        <span class="keyword">self</span>.indicatorView.backgroundColor = _indicatorColor;</div><div class="line">        <span class="keyword">self</span>.titleLabel.text = sectionTitle;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setupUI &#123;</div><div class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span>.indicatorView];</div><div class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span>.titleLabel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)makeConstraint &#123;</div><div class="line">    [<span class="keyword">self</span>.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>).offset(<span class="number">20</span>);</div><div class="line">        make.centerY.equalTo(<span class="keyword">self</span>);</div><div class="line">        make.height.mas_equalTo(<span class="number">17</span>);</div><div class="line">        make.width.mas_equalTo(<span class="number">3</span>);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.indicatorView.mas_right).offset(<span class="number">6</span>);</div><div class="line">        make.centerY.equalTo(<span class="keyword">self</span>.indicatorView);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>);</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)indicatorView &#123;</div><div class="line">    <span class="keyword">if</span>(_indicatorView) <span class="keyword">return</span> _indicatorView;</div><div class="line">    _indicatorView = [<span class="built_in">UIView</span> new];</div><div class="line">    <span class="keyword">return</span> _indicatorView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UILabel</span> *)titleLabel &#123;</div><div class="line">    <span class="keyword">if</span>(_titleLabel) <span class="keyword">return</span> _titleLabel;</div><div class="line">    _titleLabel = [<span class="built_in">UILabel</span> new];</div><div class="line">    _titleLabel.textColor = [<span class="built_in">UIColor</span> orangeColor];</div><div class="line">    _titleLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">16</span>];</div><div class="line">    <span class="keyword">return</span> _titleLabel;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><code>viewController.m</code> 中 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line"><span class="comment">/** 表头视图显示标题数组 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>       *sectionHeadViewTitleArray;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.sectionHeadViewTitleArray = @[kCompanyInfo, kContactInfo];</div><div class="line">&#125;</div><div class="line">......</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</div><div class="line">    <span class="built_in">NSString</span> *sectionTitle = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,<span class="keyword">self</span>.sectionHeadViewTitleArray[section]];</div><div class="line">    SectionHeaderView *sectionHeadView = [[SectionHeaderView alloc] initWithIndicatorColor:HEXCOLOR(<span class="number">0xFF8A00</span>) sectionTitle:sectionTitle];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> sectionHeadView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30.</span>f;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>好了 跑一下看看吧.<br><img src="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-section.png"></p>
+<h2 id="自定义地址选择器"><a href="#自定义地址选择器" class="headerlink" title="自定义地址选择器"></a>自定义地址选择器</h2><p>我们现在在第一组里面增加一个自定义的 <code>地址选择器</code> cell</p>
+<p>回顾一下自定义 <code>cell</code> 的套路.</p>
+<p><span id="inline-toc">1.</span>load</p>
+<p>注册自定义的 <code>cell</code>.</p>
+<p><span id="inline-toc">2.</span>configure</p>
+<p>初始化一些 <code>cell</code> 配置信息.</p>
+<p><span id="inline-toc">3.</span>update</p>
+<p>更新 <code>XLFromRowDescriptor</code> 对象的 <code>value</code> 属性值.</p>
+<p><code>ComplexAreaCell.h</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"XLFormBaseCell.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> XLFormRowDescriporTypeComplexArea;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ComplexAreaCell</span> : <span class="title">XLFormBaseCell</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UILabel</span>         *textLabel;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UITextField</span>     *textField;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIImageView</span>     *accessorry;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p><code>ComplexAreaCell.m</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ComplexAreaCell.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;XLForm/XLForm.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> XLFormRowDescriporTypeComplexArea = <span class="string">@"XLFormRowDescriporTypeComplexArea"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ComplexAreaCell</span>()&lt;<span class="title">UIPickerViewDelegate</span>, <span class="title">UIPickerViewDataSource</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/** pickView */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIPickerView</span>      *pickerView;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ComplexAreaCell</span></span></div><div class="line"></div><div class="line"><span class="keyword">@synthesize</span> textLabel = _textLabel;</div><div class="line"><span class="keyword">@synthesize</span> textField = _textField;</div><div class="line"><span class="keyword">@synthesize</span> accessorry = _accessorry;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 在主表单中加入一组Key Value 自定义的必须重写</span></div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[<span class="keyword">self</span> <span class="keyword">class</span>] forKey:XLFormRowDescriporTypeComplexArea];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)inputView &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.pickerView;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> inputView];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)formDescriptorCellCanBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">return</span> (!<span class="keyword">self</span>.rowDescriptor.isDisabled &amp;&amp; ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea]));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)formDescriptorCellBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">return</span>  [<span class="keyword">self</span> becomeFirstResponder];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)canBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> canBecomeFirstResponder];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - Properties</span></div><div class="line"></div><div class="line">- (<span class="built_in">UIPickerView</span> *)pickerView &#123;</div><div class="line">    <span class="keyword">if</span> (_pickerView) <span class="keyword">return</span> _pickerView;</div><div class="line">    _pickerView = [[<span class="built_in">UIPickerView</span> alloc] init];</div><div class="line">    _pickerView.delegate = <span class="keyword">self</span>;</div><div class="line">    _pickerView.dataSource = <span class="keyword">self</span>;</div><div class="line">    _pickerView.backgroundColor = HEXCOLOR(<span class="number">0xFFFFFF</span>);</div><div class="line">    <span class="keyword">return</span> _pickerView;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - XLFormDescriptorCell 配置cell</span></div><div class="line">- (<span class="keyword">void</span>)configure &#123;</div><div class="line">    [<span class="keyword">super</span> configure];</div><div class="line">    <span class="keyword">self</span>.currentProvinceId = <span class="keyword">self</span>.currentCityId = <span class="keyword">self</span>.currentAreaId = <span class="number">-1</span>;</div><div class="line">    [<span class="keyword">self</span> setSelectionStyle:<span class="built_in">UITableViewCellSelectionStyleNone</span>];</div><div class="line">    [<span class="keyword">self</span> setupUI];</div><div class="line">    [<span class="keyword">self</span> makeConstraint];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setupUI &#123;</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.textLabel];</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.textField];</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.accessorry];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)makeConstraint &#123;</div><div class="line">    [<span class="keyword">self</span>.textLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">5</span>);</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">20</span>);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">-20</span>);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.textField mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(<span class="keyword">self</span>.textLabel.mas_bottom).offset(<span class="number">10</span>);</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.textLabel);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.textLabel);</div><div class="line">        make.height.mas_equalTo(<span class="number">44</span>);</div><div class="line">        make.bottom.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">-5</span>);</div><div class="line">    &#125;];</div><div class="line">    [<span class="keyword">self</span>.accessorry mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.centerY.equalTo(<span class="keyword">self</span>.textField);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.textField.mas_right).offset(<span class="number">-5</span>);</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)update &#123;</div><div class="line">    [<span class="keyword">super</span> update];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">self</span>.textField.autocorrectionType = <span class="built_in">UITextAutocorrectionTypeDefault</span>;</div><div class="line">        <span class="keyword">self</span>.textField.autocapitalizationType = <span class="built_in">UITextAutocapitalizationTypeSentences</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.textField.text = <span class="keyword">self</span>.areaString ? <span class="keyword">self</span>.areaString : <span class="string">@"请选择"</span>;</div><div class="line">    [<span class="keyword">self</span>.textField setEnabled:!<span class="keyword">self</span>.rowDescriptor.isDisabled];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.textField.leftView = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">12</span>, <span class="keyword">self</span>.textField.frame.size.height)];</div><div class="line">    <span class="keyword">self</span>.textField.textColor = HEXCOLOR(<span class="number">0x000000</span>);</div><div class="line">    <span class="keyword">self</span>.textField.leftViewMode = <span class="built_in">UITextFieldViewModeAlways</span>;</div><div class="line">    <span class="keyword">self</span>.textField.layer.borderColor = HEXCOLOR(<span class="number">0xCCCCCC</span>).CGColor;</div><div class="line">    <span class="keyword">self</span>.textField.layer.borderWidth = <span class="number">1</span>;</div><div class="line">    <span class="keyword">self</span>.textField.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</div><div class="line">    <span class="keyword">self</span>.textField.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</div><div class="line">    <span class="keyword">self</span>.textField.enabled = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)numberOfComponentsInPickerView:(<span class="built_in">UIPickerView</span>*)pickerView &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView numberOfRowsInComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView titleForRow:(<span class="built_in">NSInteger</span>)row forComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"test"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView didSelectRow:(<span class="built_in">NSInteger</span>)row inComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">self</span>.textField.text = <span class="string">@"test_a"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">CGFloat</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView rowHeightForComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">44</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView viewForRow:(<span class="built_in">NSInteger</span>)row forComponent:(<span class="built_in">NSInteger</span>)component reusingView:(<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)view &#123;</div><div class="line">    <span class="comment">//设置分割线的颜色</span></div><div class="line">    <span class="keyword">for</span>(<span class="built_in">UIView</span> *singleLine <span class="keyword">in</span> pickerView.subviews) &#123;</div><div class="line">        <span class="keyword">if</span> (singleLine.frame.size.height &lt; <span class="number">1</span>) &#123;</div><div class="line">            singleLine.backgroundColor = HEXCOLOR(<span class="number">0xCCCCCC</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//设置文字的属性</span></div><div class="line">    <span class="built_in">UILabel</span> *genderLabel = [<span class="built_in">UILabel</span> new];</div><div class="line">    genderLabel.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</div><div class="line">    genderLabel.text = [<span class="keyword">self</span> pickerView:pickerView titleForRow:row forComponent:component];</div><div class="line">    genderLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> genderLabel;</div><div class="line">&#125;</div><div class="line"><span class="meta">#pragma mark - Helpers</span></div><div class="line">- (<span class="built_in">NSInteger</span>)selectedIndex &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.rowDescriptor.value)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> option <span class="keyword">in</span> <span class="keyword">self</span>.rowDescriptor.selectorOptions)&#123;</div><div class="line">            <span class="keyword">if</span> ([[option valueData] isEqual:[<span class="keyword">self</span>.rowDescriptor.value valueData]])&#123;</div><div class="line">                <span class="keyword">return</span> [<span class="keyword">self</span>.rowDescriptor.selectorOptions indexOfObject:option];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="built_in">UILabel</span> *)textLabel &#123;</div><div class="line">    <span class="keyword">if</span> (_textLabel) <span class="keyword">return</span> _textLabel;</div><div class="line">    _textLabel = [<span class="built_in">UILabel</span> autolayoutView];</div><div class="line">    _textLabel.textAlignment = <span class="built_in">NSTextAlignmentRight</span>;</div><div class="line">    <span class="keyword">return</span> _textLabel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UITextField</span> *)textField &#123;</div><div class="line">    <span class="keyword">if</span>(_textField) <span class="keyword">return</span> _textField;</div><div class="line">    _textField = [<span class="built_in">UITextField</span> autolayoutView];</div><div class="line">    <span class="keyword">return</span> _textField;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIImageView</span> *)accessorry &#123;</div><div class="line">    <span class="keyword">if</span>(_accessorry) <span class="keyword">return</span> _accessorry;</div><div class="line">    _accessorry = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"pullDown"</span>]];</div><div class="line">    <span class="keyword">return</span> _accessorry;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - cell的点击触发事件</span></div><div class="line">-(<span class="keyword">void</span>)formDescriptorCellDidSelectedWithFormController:(XLFormViewController *)controller &#123;</div><div class="line">    <span class="keyword">self</span>.textField.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p><code>ComplexFactory.m</code> 改造<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)initForm &#123;</div><div class="line">    XLFormSectionDescriptor * companySection = [XLFormSectionDescriptor formSectionWithTitle:kCompanyInfo];</div><div class="line">    </div><div class="line">    [companySection addFormRow:[<span class="keyword">self</span> rowFactoryWithWithTitle:<span class="string">@"* 地区"</span></div><div class="line">                                                         tag:kArea</div><div class="line">                                                    required:<span class="literal">YES</span></div><div class="line">                                                     rowType:XLFormRowDescriporTypeComplexArea</div><div class="line">                                                 placeholder:<span class="string">@"请选择"</span>]];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.form addFormSection:companySection];</div><div class="line">    </div><div class="line">    XLFormSectionDescriptor * contactSection = [XLFormSectionDescriptor formSectionWithTitle:kContactInfo];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.form addFormSection:contactSection];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>好了 ,再来看一下效果</p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-area.png">
+<h3 id="地址数据"><a href="#地址数据" class="headerlink" title="地址数据"></a>地址数据</h3><p>用到了第三方 <code>YYModel</code></p>
+<h4 id="模型编写"><a href="#模型编写" class="headerlink" title="模型编写"></a>模型编写</h4><p><code>IVModel.h</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">IAreaModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="comment">/** id */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span>              *ID;</div><div class="line"><span class="comment">/** name */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>               *name;</div><div class="line"><span class="comment">/** level */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>              *level;</div><div class="line"><span class="comment">/** parent_id */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>              *parent_id;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ICityModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="comment">/** id */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span>                  *ID;</div><div class="line"><span class="comment">/** name */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>                   *name;</div><div class="line"><span class="comment">/** level */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>                  *level;</div><div class="line"><span class="comment">/** parent_id */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>                  *parent_id;</div><div class="line"><span class="comment">/** aereList */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;IAreaModel *&gt;       *areaList;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p><code>IVModel.m</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"IVModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">IVModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="comment">// 返回容器类中的所需要存放的数据类型 (以 Class 或 Class Name 的形式)。</span></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelContainerPropertyGenericClass &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"citylist"</span> : [IModel <span class="keyword">class</span>]&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">IModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelCustomPropertyMapper &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"ID"</span> : <span class="string">@"id"</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 返回容器类中的所需要存放的数据类型 (以 Class 或 Class Name 的形式)。</span></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelContainerPropertyGenericClass &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"areaList"</span> : [ICityModel <span class="keyword">class</span>]&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">IAreaModel</span></span></div><div class="line"></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelCustomPropertyMapper &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"ID"</span> : <span class="string">@"id"</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ICityModel</span></span></div><div class="line"></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelCustomPropertyMapper &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"ID"</span> : <span class="string">@"id"</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 返回容器类中的所需要存放的数据类型 (以 Class 或 Class Name 的形式)。</span></div><div class="line">+ (<span class="built_in">NSDictionary</span> *)modelContainerPropertyGenericClass &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;<span class="string">@"areaList"</span> : [IAreaModel <span class="keyword">class</span>]&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h4 id="数据文件及解析方法"><a href="#数据文件及解析方法" class="headerlink" title="数据文件及解析方法"></a>数据文件及解析方法</h4><p><code>viewController</code> 中添加获取数据的方法.<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)loadData &#123;</div><div class="line">    <span class="built_in">NSString</span> *str = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"json"</span> ofType:<span class="string">@"txt"</span>];</div><div class="line">    <span class="built_in">NSDictionary</span> *result = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:[<span class="built_in">NSData</span> dataWithContentsOfFile:str] options:<span class="number">0</span> error:<span class="literal">NULL</span>];</div><div class="line">    <span class="keyword">self</span>.factory.provinceModel = [IVModel yy_modelWithDictionary:result];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="自定义cell的改造"><a href="#自定义cell的改造" class="headerlink" title="自定义cell的改造"></a>自定义cell的改造</h4><p><code>ComplexAreaCell.m</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ComplexAreaCell.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;XLForm/XLForm.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"IVModel.h"</span></span></div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> XLFormRowDescriporTypeComplexArea = <span class="string">@"XLFormRowDescriporTypeComplexArea"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ComplexAreaCell</span>()&lt;<span class="title">UIPickerViewDelegate</span>, <span class="title">UIPickerViewDataSource</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/** pickView */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIPickerView</span>      *pickerView;</div><div class="line"><span class="comment">/** ids */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *areaString;</div><div class="line"><span class="comment">//数据模型</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) IVModel           *provinceModel;</div><div class="line"><span class="comment">/** province模型数组 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;IModel *&gt;       *provinceModelArray;</div><div class="line"><span class="comment">/** city模型数组 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;ICityModel *&gt;       *cityModelArray;</div><div class="line"><span class="comment">/** area模型数组 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;IAreaModel *&gt;       *areaModelArray;</div><div class="line"><span class="comment">/** province ID */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">NSInteger</span> currentProvinceId;</div><div class="line"><span class="comment">/** city ID */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">NSInteger</span> currentCityId;</div><div class="line"><span class="comment">/** area ID */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">NSInteger</span> currentAreaId;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ComplexAreaCell</span></span></div><div class="line"></div><div class="line"><span class="keyword">@synthesize</span> textLabel = _textLabel;</div><div class="line"><span class="keyword">@synthesize</span> textField = _textField;</div><div class="line"><span class="keyword">@synthesize</span> accessorry = _accessorry;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 在主表单中加入一组Key Value 自定义的必须重写</span></div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[<span class="keyword">self</span> <span class="keyword">class</span>] forKey:XLFormRowDescriporTypeComplexArea];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)inputView &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.pickerView;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> inputView];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)formDescriptorCellCanBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">return</span> (!<span class="keyword">self</span>.rowDescriptor.isDisabled &amp;&amp; ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea]));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)formDescriptorCellBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">return</span>  [<span class="keyword">self</span> becomeFirstResponder];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)canBecomeFirstResponder &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> canBecomeFirstResponder];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - Properties</span></div><div class="line"></div><div class="line">- (<span class="built_in">UIPickerView</span> *)pickerView &#123;</div><div class="line">    <span class="keyword">if</span> (_pickerView) <span class="keyword">return</span> _pickerView;</div><div class="line">    _pickerView = [[<span class="built_in">UIPickerView</span> alloc] init];</div><div class="line">    _pickerView.delegate = <span class="keyword">self</span>;</div><div class="line">    _pickerView.dataSource = <span class="keyword">self</span>;</div><div class="line">    _pickerView.backgroundColor = HEXCOLOR(<span class="number">0xFFFFFF</span>);</div><div class="line">    <span class="keyword">return</span> _pickerView;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - XLFormDescriptorCell 配置cell</span></div><div class="line">- (<span class="keyword">void</span>)configure &#123;</div><div class="line">    [<span class="keyword">super</span> configure];</div><div class="line">    <span class="keyword">self</span>.currentProvinceId = <span class="keyword">self</span>.currentCityId = <span class="keyword">self</span>.currentAreaId = <span class="number">-1</span>;</div><div class="line">    [<span class="keyword">self</span> setSelectionStyle:<span class="built_in">UITableViewCellSelectionStyleNone</span>];</div><div class="line">    [<span class="keyword">self</span> setupUI];</div><div class="line">    [<span class="keyword">self</span> makeConstraint];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setupUI &#123;</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.textLabel];</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.textField];</div><div class="line">    [<span class="keyword">self</span>.contentView addSubview:<span class="keyword">self</span>.accessorry];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)makeConstraint &#123;</div><div class="line">    [<span class="keyword">self</span>.textLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">5</span>);</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">20</span>);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">-20</span>);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.textField mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(<span class="keyword">self</span>.textLabel.mas_bottom).offset(<span class="number">10</span>);</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.textLabel);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.textLabel);</div><div class="line">        make.height.mas_equalTo(<span class="number">44</span>);</div><div class="line">        make.bottom.equalTo(<span class="keyword">self</span>.contentView).offset(<span class="number">-5</span>);</div><div class="line">    &#125;];</div><div class="line">    [<span class="keyword">self</span>.accessorry mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.centerY.equalTo(<span class="keyword">self</span>.textField);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.textField.mas_right).offset(<span class="number">-5</span>);</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)titleHighLight &#123;</div><div class="line">    <span class="built_in">NSString</span> *title = <span class="keyword">self</span>.rowDescriptor.title;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.textLabel.font = [<span class="built_in">UIFont</span> fontWithName:<span class="string">@"HelveticaNeue"</span> size:<span class="number">12</span>];</div><div class="line">    <span class="built_in">NSMutableAttributedString</span> *str = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,title]];</div><div class="line">    <span class="built_in">NSMutableParagraphStyle</span> *paragraphStyle = [[<span class="built_in">NSMutableParagraphStyle</span> alloc] init];</div><div class="line">    <span class="comment">// 首行缩进</span></div><div class="line">    paragraphStyle.alignment = <span class="built_in">NSTextAlignmentLeft</span>;</div><div class="line">    <span class="keyword">if</span>([title rangeOfString:<span class="string">@"*"</span>].location != <span class="built_in">NSNotFound</span>) &#123;</div><div class="line">        [str addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> redColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>,<span class="number">1</span>)];</div><div class="line">    &#125;</div><div class="line">    [str addAttribute:<span class="built_in">NSParagraphStyleAttributeName</span> value:paragraphStyle range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, [title length])];</div><div class="line">    [str addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> fontWithName:<span class="string">@"HelveticaNeue"</span> size:<span class="number">12</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, [title length])];</div><div class="line">    <span class="keyword">self</span>.textLabel.attributedText = str;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)update &#123;</div><div class="line">    [<span class="keyword">super</span> update];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.rowDescriptor.rowType isEqualToString:XLFormRowDescriporTypeComplexArea])&#123;</div><div class="line">        <span class="keyword">self</span>.textField.autocorrectionType = <span class="built_in">UITextAutocorrectionTypeDefault</span>;</div><div class="line">        <span class="keyword">self</span>.textField.autocapitalizationType = <span class="built_in">UITextAutocapitalizationTypeSentences</span>;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> titleHighLight];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.textField.text = <span class="keyword">self</span>.areaString ? <span class="keyword">self</span>.areaString : <span class="string">@"请选择"</span>;</div><div class="line">    [<span class="keyword">self</span>.textField setEnabled:!<span class="keyword">self</span>.rowDescriptor.isDisabled];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.textField.leftView = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">12</span>, <span class="keyword">self</span>.textField.frame.size.height)];</div><div class="line">    <span class="keyword">self</span>.textField.textColor = HEXCOLOR(<span class="number">0x000000</span>);</div><div class="line">    <span class="keyword">self</span>.textField.leftViewMode = <span class="built_in">UITextFieldViewModeAlways</span>;</div><div class="line">    <span class="keyword">self</span>.textField.layer.borderColor = HEXCOLOR(<span class="number">0xCCCCCC</span>).CGColor;</div><div class="line">    <span class="keyword">self</span>.textField.layer.borderWidth = <span class="number">1</span>;</div><div class="line">    <span class="keyword">self</span>.textField.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</div><div class="line">    <span class="keyword">self</span>.textField.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</div><div class="line">    <span class="keyword">self</span>.textField.enabled = <span class="literal">NO</span>;</div><div class="line">    [<span class="keyword">self</span> preSelectedValue];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 设置每次应该默认选中的项</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)preSelectedValue &#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="keyword">self</span>.rowDescriptor.value) <span class="keyword">return</span>;</div><div class="line">    <span class="built_in">NSString</span> __block *provinceName,__block *cityName,__block *areaName ;</div><div class="line">    <span class="built_in">NSString</span> *ids = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span>([<span class="keyword">self</span>.rowDescriptor.value isKindOfClass:[XLFormOptionsObject <span class="keyword">class</span>]]) &#123;</div><div class="line">        ids = [<span class="keyword">self</span>.rowDescriptor.value formValue];</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        ids = <span class="keyword">self</span>.rowDescriptor.value;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(!ids) <span class="keyword">return</span>;</div><div class="line">    <span class="built_in">NSArray</span> *idss = [ids componentsSeparatedByString:<span class="string">@"-"</span>];</div><div class="line">    <span class="keyword">if</span>(!idss) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="keyword">self</span>.provinceModelArray) <span class="keyword">return</span>;</div><div class="line">    [<span class="keyword">self</span>.provinceModelArray enumerateObjectsUsingBlock:^(IModel * _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">        <span class="keyword">if</span>([obj.ID integerValue] == [idss[<span class="number">0</span>] integerValue]) &#123;</div><div class="line">            <span class="keyword">self</span>.currentProvinceId = idx;</div><div class="line">            provinceName = obj.name;</div><div class="line">            *stop = <span class="literal">YES</span>;</div><div class="line">        &#125;</div><div class="line">        [obj.areaList enumerateObjectsUsingBlock:^(ICityModel * _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">            <span class="keyword">if</span>([obj.ID integerValue] == [idss[<span class="number">1</span>] integerValue]) &#123;</div><div class="line">                <span class="keyword">self</span>.currentCityId = idx;</div><div class="line">                cityName = obj.name;</div><div class="line">                *stop = <span class="literal">YES</span>;</div><div class="line">            &#125;</div><div class="line">            [obj.areaList enumerateObjectsUsingBlock:^(IAreaModel * _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">                <span class="keyword">if</span>([obj.ID integerValue] == [idss[<span class="number">2</span>] integerValue]) &#123;</div><div class="line">                    <span class="keyword">self</span>.currentAreaId = idx;</div><div class="line">                    areaName = obj.name;</div><div class="line">                    *stop = <span class="literal">YES</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;];</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">    <span class="keyword">self</span>.textField.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)numberOfComponentsInPickerView:(<span class="built_in">UIPickerView</span>*)pickerView &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView numberOfRowsInComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="number">0</span> == component) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.provinceModelArray.count;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">1</span> == component) &#123;</div><div class="line">        <span class="built_in">NSInteger</span> rowProvince = [pickerView selectedRowInComponent:<span class="number">0</span>];</div><div class="line">        <span class="keyword">self</span>.cityModelArray = <span class="keyword">self</span>.provinceModelArray[rowProvince].areaList;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">self</span>.currentProvinceId &gt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.cityModelArray = <span class="keyword">self</span>.provinceModelArray[<span class="keyword">self</span>.currentProvinceId].areaList;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.cityModelArray.count &gt; <span class="number">0</span> ? <span class="keyword">self</span>.cityModelArray.count : <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">NSInteger</span> rowProvince1 = [pickerView selectedRowInComponent:<span class="number">1</span>];</div><div class="line">        <span class="keyword">self</span>.areaModelArray = <span class="keyword">self</span>.cityModelArray[rowProvince1].areaList;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">self</span>.currentCityId &gt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.areaModelArray = <span class="keyword">self</span>.cityModelArray[<span class="keyword">self</span>.currentCityId].areaList;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.areaModelArray.count &gt; <span class="number">0</span> ? <span class="keyword">self</span>.areaModelArray.count : <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView titleForRow:(<span class="built_in">NSInteger</span>)row forComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="number">0</span> == component) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.provinceModelArray[row].name;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">1</span> == component)&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">self</span>.cityModelArray.count == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">self</span>.cityModelArray[<span class="number">0</span>].name;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.cityModelArray[row].name;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">self</span>.areaModelArray.count == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">self</span>.areaModelArray[<span class="number">0</span>].name;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.areaModelArray[row].name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView didSelectRow:(<span class="built_in">NSInteger</span>)row inComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">self</span>.currentProvinceId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">0</span>];</div><div class="line">    <span class="keyword">self</span>.currentCityId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">1</span>];</div><div class="line">    <span class="keyword">self</span>.currentAreaId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">2</span>];</div><div class="line">    <span class="keyword">switch</span> (component) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            <span class="keyword">self</span>.currentCityId = <span class="number">0</span>;</div><div class="line">            <span class="keyword">self</span>.cityModelArray = <span class="literal">nil</span>;</div><div class="line">            <span class="keyword">self</span>.cityModelArray = <span class="keyword">self</span>.provinceModelArray[<span class="keyword">self</span>.currentProvinceId].areaList;</div><div class="line">            [<span class="keyword">self</span>.pickerView reloadComponent:<span class="number">1</span>];</div><div class="line">            [<span class="keyword">self</span>.pickerView reloadComponent:<span class="number">2</span>];</div><div class="line">            <span class="comment">//让刷新后的第一和二 个滚轮重新回到第一行</span></div><div class="line">            [<span class="keyword">self</span>.pickerView selectRow:<span class="number">0</span> inComponent:<span class="number">1</span> animated:<span class="literal">YES</span>];</div><div class="line">            [<span class="keyword">self</span>.pickerView selectRow:<span class="number">0</span> inComponent:<span class="number">2</span> animated:<span class="literal">YES</span>];</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">            <span class="keyword">self</span>.currentAreaId = <span class="number">0</span>;</div><div class="line">            <span class="keyword">self</span>.areaModelArray = <span class="literal">nil</span>;</div><div class="line">            <span class="keyword">self</span>.areaModelArray = <span class="keyword">self</span>.cityModelArray[<span class="keyword">self</span>.currentCityId].areaList;</div><div class="line">            [<span class="keyword">self</span>.pickerView reloadComponent:<span class="number">2</span>];</div><div class="line">            <span class="comment">//让刷新后的第二个滚轮重新回到第一行</span></div><div class="line">            [<span class="keyword">self</span>.pickerView selectRow:<span class="number">0</span> inComponent:<span class="number">2</span> animated:<span class="literal">YES</span>];</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 获取城市ID</span></div><div class="line">    <span class="built_in">NSString</span> *procinveID = [<span class="keyword">self</span>.provinceModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">0</span>]].ID stringValue];</div><div class="line">    <span class="built_in">NSString</span> *cityID = [<span class="keyword">self</span>.cityModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">1</span>]].ID stringValue];</div><div class="line">    <span class="built_in">NSString</span> *areaID = [<span class="keyword">self</span>.areaModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">2</span>]].ID stringValue];</div><div class="line">    <span class="comment">// 记录当前选中行</span></div><div class="line">    <span class="keyword">self</span>.currentProvinceId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">0</span>];</div><div class="line">    <span class="keyword">self</span>.currentCityId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">1</span>];</div><div class="line">    <span class="keyword">self</span>.currentAreaId = [<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">2</span>];</div><div class="line">    <span class="comment">// 获取城市名字</span></div><div class="line">    <span class="built_in">NSString</span> *provinceName = <span class="keyword">self</span>.provinceModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">0</span>]].name;</div><div class="line">    <span class="built_in">NSString</span> *cityName = <span class="keyword">self</span>.cityModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">1</span>]].name;</div><div class="line">    <span class="built_in">NSString</span> *areaName = <span class="keyword">self</span>.areaModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">2</span>]].name;</div><div class="line">    <span class="keyword">self</span>.rowDescriptor.value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,procinveID,cityID,areaID];</div><div class="line">    <span class="keyword">self</span>.textField.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">    <span class="keyword">self</span>.areaString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">CGFloat</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView rowHeightForComponent:(<span class="built_in">NSInteger</span>)component &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">44</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView viewForRow:(<span class="built_in">NSInteger</span>)row forComponent:(<span class="built_in">NSInteger</span>)component reusingView:(<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)view &#123;</div><div class="line">    <span class="comment">//设置分割线的颜色</span></div><div class="line">    <span class="keyword">for</span>(<span class="built_in">UIView</span> *singleLine <span class="keyword">in</span> pickerView.subviews) &#123;</div><div class="line">        <span class="keyword">if</span> (singleLine.frame.size.height &lt; <span class="number">1</span>) &#123;</div><div class="line">            singleLine.backgroundColor = HEXCOLOR(<span class="number">0xCCCCCC</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//设置文字的属性</span></div><div class="line">    <span class="built_in">UILabel</span> *genderLabel = [<span class="built_in">UILabel</span> new];</div><div class="line">    genderLabel.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</div><div class="line">    genderLabel.text = [<span class="keyword">self</span> pickerView:pickerView titleForRow:row forComponent:component];</div><div class="line">    genderLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> genderLabel;</div><div class="line">&#125;</div><div class="line"><span class="meta">#pragma mark - Helpers</span></div><div class="line">- (<span class="built_in">NSInteger</span>)selectedIndex &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.rowDescriptor.value)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> option <span class="keyword">in</span> <span class="keyword">self</span>.rowDescriptor.selectorOptions)&#123;</div><div class="line">            <span class="keyword">if</span> ([[option valueData] isEqual:[<span class="keyword">self</span>.rowDescriptor.value valueData]])&#123;</div><div class="line">                <span class="keyword">return</span> [<span class="keyword">self</span>.rowDescriptor.selectorOptions indexOfObject:option];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">-(<span class="built_in">UILabel</span> *)textLabel &#123;</div><div class="line">    <span class="keyword">if</span> (_textLabel) <span class="keyword">return</span> _textLabel;</div><div class="line">    _textLabel = [<span class="built_in">UILabel</span> autolayoutView];</div><div class="line">    _textLabel.textAlignment = <span class="built_in">NSTextAlignmentRight</span>;</div><div class="line">    <span class="keyword">return</span> _textLabel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UITextField</span> *)textField &#123;</div><div class="line">    <span class="keyword">if</span>(_textField) <span class="keyword">return</span> _textField;</div><div class="line">    _textField = [<span class="built_in">UITextField</span> autolayoutView];</div><div class="line">    <span class="keyword">return</span> _textField;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UIImageView</span> *)accessorry &#123;</div><div class="line">    <span class="keyword">if</span>(_accessorry) <span class="keyword">return</span> _accessorry;</div><div class="line">    _accessorry = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"pullDown"</span>]];</div><div class="line">    <span class="keyword">return</span> _accessorry;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - 数据设置</span></div><div class="line">- (<span class="keyword">void</span>)setProvinceModel:(IVModel *)provinceModel &#123;</div><div class="line">    _provinceModel = provinceModel;</div><div class="line">    <span class="keyword">self</span>.provinceModelArray = _provinceModel.citylist;</div><div class="line">    [<span class="keyword">self</span>.pickerView reloadAllComponents];</div><div class="line">&#125;</div><div class="line"><span class="meta">#pragma mark - cell的点击触发事件</span></div><div class="line">-(<span class="keyword">void</span>)formDescriptorCellDidSelectedWithFormController:(XLFormViewController *)controller &#123;</div><div class="line">    <span class="built_in">NSString</span> *provinceName, *cityName, *areaName ;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>.currentProvinceId &gt;= <span class="number">0</span>) &#123;</div><div class="line">        [<span class="keyword">self</span>.pickerView selectRow:<span class="keyword">self</span>.currentProvinceId inComponent:<span class="number">0</span> animated:<span class="literal">NO</span>];</div><div class="line">        provinceName = <span class="keyword">self</span>.provinceModelArray[<span class="keyword">self</span>.currentProvinceId].name;</div><div class="line">        <span class="keyword">self</span>.cityModelArray = <span class="keyword">self</span>.provinceModelArray[<span class="keyword">self</span>.currentProvinceId].areaList;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>.currentCityId &gt;= <span class="number">0</span>) &#123;</div><div class="line">        [<span class="keyword">self</span>.pickerView selectRow:<span class="keyword">self</span>.currentCityId inComponent:<span class="number">1</span> animated:<span class="literal">NO</span>];</div><div class="line">        cityName = <span class="keyword">self</span>.cityModelArray[<span class="keyword">self</span>.currentCityId].name;</div><div class="line">        <span class="keyword">self</span>.areaModelArray = <span class="keyword">self</span>.cityModelArray[<span class="keyword">self</span>.currentCityId].areaList;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>.currentAreaId &gt;= <span class="number">0</span>) &#123;</div><div class="line">        [<span class="keyword">self</span>.pickerView selectRow:<span class="keyword">self</span>.currentAreaId inComponent:<span class="number">2</span> animated:<span class="literal">NO</span>];</div><div class="line">        areaName = <span class="keyword">self</span>.areaModelArray[<span class="keyword">self</span>.currentAreaId].name;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(!provinceName &amp;&amp; !cityName &amp;&amp; !areaName) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 为了第一次点击cell的时候设置value</span></div><div class="line">    <span class="built_in">NSString</span> *procinveID = [<span class="keyword">self</span>.provinceModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">0</span>]].ID stringValue];</div><div class="line">    <span class="built_in">NSString</span> *cityID = [<span class="keyword">self</span>.cityModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">1</span>]].ID stringValue];</div><div class="line">    <span class="built_in">NSString</span> *areaID = [<span class="keyword">self</span>.areaModelArray[[<span class="keyword">self</span>.pickerView selectedRowInComponent:<span class="number">2</span>]].ID stringValue];</div><div class="line">    <span class="keyword">self</span>.rowDescriptor.value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,procinveID,cityID,areaID];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.textField.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">    <span class="keyword">self</span>.areaString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@-%@-%@"</span>,provinceName,cityName,areaName];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h4 id="表单创建类-ComplexFactory"><a href="#表单创建类-ComplexFactory" class="headerlink" title="表单创建类 ComplexFactory"></a>表单创建类 ComplexFactory</h4><p><code>ComplexFactory.h</code> 中增加记录地址数据的属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** IVModel 城市联动数据模型 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) IVModel                       *provinceModel;</div></pre></td></tr></table></figure></p>
+<p><code>ComplexFactory.m</code> 中通过 <code>kvc</code> 赋值 <code>provinceModel</code> 地址数据.<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (XLFormRowDescriptor *)rowFactoryWithWithTitle:(<span class="built_in">NSString</span> *)headerTitle tag:(<span class="built_in">NSString</span> *)tag required:(<span class="built_in">BOOL</span>)required rowType:(<span class="built_in">NSString</span> *)rowType placeholder:(<span class="built_in">NSString</span> *)placeholder &#123;</div><div class="line">    XLFormRowDescriptor *row;</div><div class="line">    row = [XLFormRowDescriptor formRowDescriptorWithTag:tag rowType:rowType];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(tag == kArea) &#123;</div><div class="line">        [row.cellConfig setValue:<span class="keyword">self</span>.provinceModel forKey:<span class="string">@"provinceModel"</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(required) &#123;</div><div class="line">        row.requireMsg = <span class="string">@"带*为必填!"</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    row.required = required;</div><div class="line">    row.title = headerTitle;</div><div class="line">    row.height = <span class="built_in">UITableViewAutomaticDimension</span>;</div><div class="line">    <span class="keyword">return</span> row;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="数据验证器"><a href="#数据验证器" class="headerlink" title="数据验证器"></a>数据验证器</h3><p><code>ComplexRegValidator.m</code> 的验证方法.<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (XLFormValidator *)areaValidator &#123;</div><div class="line">    <span class="keyword">return</span> [XLFormRegexValidator formRegexValidatorWithMsg:<span class="built_in">NSLocalizedString</span>(<span class="string">@"请选择地址"</span>, <span class="literal">nil</span>) regex:<span class="string">@"^((?!请选择).)*$"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>ComplexFactory.m</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">[row addValidator:[ComplexRegValidator areaValidator]];</div><div class="line">......</div></pre></td></tr></table></figure></p>
+<p><code>ComplexValidator.m</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line"><span class="keyword">if</span> ([validationStatus.rowDescriptor.tag isEqualToString:kArea] &amp;&amp; !validationStatus.isValid) &#123;</div><div class="line">    *stop = <span class="literal">YES</span>;</div><div class="line">    <span class="comment">// show hud ....</span></div><div class="line"> &#125;</div><div class="line">......</div></pre></td></tr></table></figure></p>
+<p>好了,结束了.来看一下 <code>gif</code></p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/XLFormComplex/xlform-complex-custom-area-done.gif">
+<p>补上最想要的 <a href="git@github.com:urm9ril/XLFormComplex.git">Demo</a> </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2017/06/25/XLForm-Complex-AreaPicker/">XLForm 表单库的复杂使用 - 地址选择器</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 张强 的个人博客">张强</a></p>
+  <p><span>发布时间:</span>2017年06月25日 - 19:06</p>
+  <p><span>最后更新:</span>2018年06月25日 - 17:06</p>
+  <p><span>原始链接:</span><a href="/2017/06/25/XLForm-Complex-AreaPicker/" title="XLForm 表单库的复杂使用 - 地址选择器">http://urm9ril.top/2017/06/25/XLForm-Complex-AreaPicker/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://urm9ril.top/2017/06/25/XLForm-Complex-AreaPicker/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa-window-minimize"></i>  ß感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/XLForm/" <i class="fa fa-tags"></i>XLForm</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/13/qiniuyun/" rel="next" title="Hexo图床之七牛云">
+                <i class="fa fa-chevron-left"></i> Hexo图床之七牛云
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/fullscreen-capture/" rel="prev" title="iOS 全屏截图分享组件">
+                iOS 全屏截图分享组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">张强</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+            <div id="days"></div>
+    </script>
+    <script language="javascript">
+    function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("06/10/2014 15:00:00");
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = setzero(Math.floor(e_hrsold));
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+        seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+        document.getElementById('days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+    }
+    function setzero(i) {
+        if (i<10)
+        {i="0" + i};
+        return i;
+    }
+    show_date_time();
+</script>
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组头的使用"><span class="nav-number">1.</span> <span class="nav-text">组头的使用.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义组头"><span class="nav-number">1.1.</span> <span class="nav-text">自定义组头</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义地址选择器"><span class="nav-number">2.</span> <span class="nav-text">自定义地址选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#地址数据"><span class="nav-number">2.1.</span> <span class="nav-text">地址数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型编写"><span class="nav-number">2.1.1.</span> <span class="nav-text">模型编写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据文件及解析方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">数据文件及解析方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义cell的改造"><span class="nav-number">2.1.3.</span> <span class="nav-text">自定义cell的改造</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单创建类-ComplexFactory"><span class="nav-number">2.1.4.</span> <span class="nav-text">表单创建类 ComplexFactory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据验证器"><span class="nav-number">2.2.</span> <span class="nav-text">数据验证器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="with-love">
+  (●'◡'●)ﾉ♥
+  </span>
+  <span class="author" itemprop="copyrightHolder">张强</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站总字数&#58;</span>
+    
+    <span title="全站总字数">14.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      你是本站第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>位访客
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      文章共批阅<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '7FNrT8jBTCLil5J7vFWmPVe3-gzGzoHsz',
+        appKey: 'Evbd5Bv3xxN8M3GybtBOyHXU',
+        placeholder: '畅所欲言,请尽可能留下真实的邮箱,以便交流.',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7FNrT8jBTCLil5J7vFWmPVe3-gzGzoHsz", "Evbd5Bv3xxN8M3GybtBOyHXU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "topCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;
+  <script>
+    $(document).ready(function(){
+      $('body').backstretch([
+        {url: "/images/background.png", fade: 4000},
+        {url: "/images/background01.jpg", fade: 4000},
+        {url: "/images/background02.jpg", fade: 4000},
+        {url: "/images/background03.jpg", fade: 4000}
+      ]);
+    });
+  </script> -->
+
+</body>
+</html>

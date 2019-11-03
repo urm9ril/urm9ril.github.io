@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jenkins," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="图已补 😓2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷什么是 JenkinsJenkins是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装
+附上下载地址 :Jenkins
+建议下载 .war文件 配合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins一键发布 ipa 到蒲公英">
+<meta property="og:url" content="http://urm9ril.top/2017/03/12/Jenkins/index.html">
+<meta property="og:site_name" content="ooops 的小站">
+<meta property="og:description" content="图已补 😓2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷什么是 JenkinsJenkins是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装
+附上下载地址 :Jenkins
+建议下载 .war文件 配合">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-init.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-privatekey.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-provision-look.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-provision.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-general.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-sourcecode-manager.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-trigger.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-build-env.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-build.png">
+<meta property="og:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-pgy.png">
+<meta property="og:updated_time" content="2018-06-24T07:50:20.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenkins一键发布 ipa 到蒲公英">
+<meta name="twitter:description" content="图已补 😓2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷什么是 JenkinsJenkins是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装
+附上下载地址 :Jenkins
+建议下载 .war文件 配合">
+<meta name="twitter:image" content="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-init.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://urm9ril.top/2017/03/12/Jenkins/"/>
+
+
+
+
+
+  <title>Jenkins一键发布 ipa 到蒲公英 | ooops 的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ooops 的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><_`_></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://urm9ril.top/2017/03/12/Jenkins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ooops 的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Jenkins一键发布 ipa 到蒲公英</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T19:16:06+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/12/Jenkins/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/12/Jenkins/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/12/Jenkins/" class="leancloud_visitors" data-flag-title="Jenkins一键发布 ipa 到蒲公英">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,408
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="图已补-😓"><a href="#图已补-😓" class="headerlink" title="图已补 😓"></a>图已补 😓</h1><h1 id="2017-05-20-由于不小心删除了配图仓库-图片都看不见了-有时间再给补上-各位观众老爷-轻喷"><a href="#2017-05-20-由于不小心删除了配图仓库-图片都看不见了-有时间再给补上-各位观众老爷-轻喷" class="headerlink" title="2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷"></a>2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷</h1><h3 id="什么是-Jenkins"><a href="#什么是-Jenkins" class="headerlink" title="什么是 Jenkins"></a>什么是 Jenkins</h3><p>Jenkins是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装</p>
+<p>附上下载地址 :<a href="https://jenkins.io/index.html" target="_blank" rel="external">Jenkins</a></p>
+<p>建议下载 <code>.war</code>文件 配合<code>Tomcat</code>环境使用.</p>
+<p>直接下载了<code>.war</code>文件，这个文件是直接放在<code>Tomcat</code>下<code>webapps</code>目录下.</p>
+<p>优点:它的权限就是当前用户.</p>
+<h3 id="开始安装Tomcat"><a href="#开始安装Tomcat" class="headerlink" title="开始安装Tomcat"></a>开始安装Tomcat</h3><a id="more"></a>
+<p>附上下载地址 :<a href="https://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">Tomcat</a></p>
+<p>把下载好的<code> Tomcat </code>文件夹 放到你想放的目录</p>
+<p>然后把 <code>.war</code> 文件放入 <code>Tomcat</code>文件夹下的 <code>webapps</code> 目录下</p>
+<h3 id="运行Jenkins"><a href="#运行Jenkins" class="headerlink" title="运行Jenkins"></a>运行Jenkins</h3><p>命令行进入<code>Tomcat</code>安装目录.</p>
+<pre>
+    cd /Users/ooops/apache-tomcat-7.0.75/bin
+</pre>
+可能会报 <code>-bash: /Users/ooops/apache-tomcat-7.0.75/bin/startup.sh: Permission denied</code>错误,这是因为对该文件没有执行权限造成的.
+
+执行如下命令:
+<pre>
+    chmod +x *.sh
+</pre>
+然后执行
+<pre>
+    sh startup.sh
+</pre>
+打开浏览器输入 localhost:8080 看到 <code>Tomcat</code>启动页面,表示<code>Tomcat</code>安装成功
+
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-init.png">
+
+进入<code>Tomcat</code>目录下 <code>conf</code>打开 <code>tomcat-users.xml</code>文件,在文件根节点结束之前添加如下配置
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager-gui"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">"admin"</span> <span class="attr">password</span>=<span class="string">"admin"</span> <span class="attr">roles</span>=<span class="string">"manager-gui"</span>/&gt;</span></div></pre></td></tr></table></figure>
+
+设置<code>Tomcat</code>的登录信息
+
+使用如下命令重启Tomcat
+<pre>
+    cd /Users/ooops/apache-tomcat-7.0.75/bin
+    sh shutdown.sh
+    sh startup.sh
+</pre>
+再次访问 localhost:8080 选择 Manager Apps 登录<code>Tomcat</code>,选择列表中<code>Jenkins</code>
+
+输入如下命令查看Jenkins初始密码
+<pre>
+    open /Users/ooops/.jenkins/secrets/initialAdminPassword
+</pre>
+
+
+<p>粘贴初始密码,点击继续,等待片刻</p>
+<p>选择<code>Install suggested plugins </code>安装推荐的<code> Jenkins </code>插件</p>
+<p>推荐的插件安装完毕,还有我们自己需要的插件安装</p>
+<p>首先进入插件管理器界面,进入方式: 系统管理-&gt;管理插件</p>
+<p>在可选插件中搜索我们需要的插件,进行安装</p>
+<p>GIT 环境下我们需要安装的插件有 三 个</p>
+<ul>
+<li><code>Gitlab Hook Plugin </code>  因为我们用的是GitLab来管理源代码，Jenkins本身并没有自带GitLab插件</li>
+<li><code>Xcode</code> Xcode环境插件.</li>
+<li><code>Keychains and Provisioning Profiles Management</code> 钥匙串和证书配置</li>
+</ul>
+<h3 id="配置GIT"><a href="#配置GIT" class="headerlink" title="配置GIT"></a>配置GIT</h3><p>私钥文件位置 家目录下的 <code>.ssh</code> 文件夹下</p>
+<p>配置<code>GIT</code> 私钥</p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-privatekey.png">
+<h3 id="钥匙串和证书配置"><a href="#钥匙串和证书配置" class="headerlink" title="钥匙串和证书配置"></a>钥匙串和证书配置</h3><p>进入方式: 系统管理-&gt;Keychains and Provisioning Profiles Management</p>
+<p>钥匙串文件路径 : <code> /Users/用户名(your user name)/Library/Keychains/login.keychain</code></p>
+<p>上传<code>钥匙串 keychain </code>和 <code>证书描述文件 Provisioning Profile</code></p>
+<p>上传之后的要是串和证书描述文件会被<code>Jenkins</code></p>
+<p>保存在<code>/Users/改成你的(your user name)/.jenkins/kpp_upload</code>目录下</p>
+<p>配置对应的钥匙串中的<code>开发(调试)</code> <code>生产(发布)</code> 证书</p>
+<p>首先打开钥匙串,获取证书的常用名称</p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-provision-look.png">
+<p>我们将证书的常用名称点入 钥匙串的配置中,具体配置参考下图</p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-provision.png">
+<p>上图目录配置,改为/Users/改成你的(your user name)/.jenkins/kpp_upload.偷个懒 不补图了.</p>
+<p>点击确定完成配置.</p>
+<pre><code>
+</code></pre><h3 id="系统全局配置"><a href="#系统全局配置" class="headerlink" title="系统全局配置"></a>系统全局配置</h3><p>Jenkins 主页 -&gt; 系统管理 -&gt; 系统设置 -&gt; 全局属性 -&gt; 勾选<code>Keychains and </code></p>
+<p>Provisioning Profiles Management 填入上传到 Jenkins 的证书和描述文件目录</p>
+<p><code>/Users/ooops(你的用户名)/.jenkins/kpp_upload</code></p>
+<h2 id="下面开始构建项目配置"><a href="#下面开始构建项目配置" class="headerlink" title="下面开始构建项目配置."></a>下面开始构建项目配置.</h2><p>创建一个多配置的项目</p>
+<h3 id="General-参数"><a href="#General-参数" class="headerlink" title="General 参数"></a>General 参数</h3><img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-general.png">
+<h3 id="源码管理-参数"><a href="#源码管理-参数" class="headerlink" title="源码管理 参数"></a>源码管理 参数</h3><img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-sourcecode-manager.png">
+<h3 id="构建触发器设置"><a href="#构建触发器设置" class="headerlink" title="构建触发器设置"></a>构建触发器设置</h3><p>这里是设置自动化测试的地方。<br>涉及的内容很多，<br>暂时我也没有深入研究，这里暂时先不设置。<br>有自动化测试需求的可以 研究研究这里的设置。</p>
+<p>不过这里两个配置还是需要是设置的</p>
+<p><code>Poll SCM (poll source code management)</code> 轮询源码管理</p>
+<p>需要设置源码的路径才能起到轮询的效果。</p>
+<p>一般设置为类似结果： 0/5 每5分钟轮询一次</p>
+<p><code>Build periodically</code> (定时构建)</p>
+<p>一般设置为类似： 00 20 * 每天 20点执行定时构建</p>
+<p>格式如下 (具体可以参考后面的小问号??) 嘿嘿</p>
+<p>分钟(0-59) 小时(0-23) 日期(1-31) 月(1-12) 周几(0-7,0和7都是周日)</p>
+<p>设置之后文本输入域下面会有你填写格式的翻译.</p>
+<p>参数配置参考：</p>
+<p><a href="https://blog.csdn.net/xueyingqi/article/details/53216506" target="_blank" rel="external">https://blog.csdn.net/xueyingqi/article/details/53216506</a></p>
+<p><a href="https://blog.csdn.net/yezicjj/article/details/52763700" target="_blank" rel="external">https://blog.csdn.net/yezicjj/article/details/52763700</a></p>
+<img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-trigger.png">
+<h3 id="构建环境-参数"><a href="#构建环境-参数" class="headerlink" title="构建环境 参数"></a>构建环境 参数</h3><p>参考下图设置<br><img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-build-env.png"></p>
+<p>请参考 钥匙串和证书配置 中关于钥匙串的配置.</p>
+<h3 id="构建-设置"><a href="#构建-设置" class="headerlink" title="构建 设置"></a>构建 设置</h3><img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-build.png">
+<pre>
+# 工程名
+APP_NAME="你的项目名称"
+# 证书
+CODE_SIGN_DISTRIBUTION="iPhone Developer: XXXXXXX"
+#CODE_SIGN_DISTRIBUTION="iPhone Distribution: XXXXXXXXXX"
+# info.plist路径
+project_infoplist_path="./${APP_NAME}/Info.plist"
+
+#取版本号
+bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionString" "${project_infoplist_path}")
+
+#取build值
+bundleVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleVersion" "${project_infoplist_path}")
+
+DATE="$(date +%Y%m%d)"
+IPANAME="${APP_NAME}_V${bundleShortVersion}_${DATE}.ipa"
+#IPANAME="${APP_NAME}.ipa"
+
+#要上传的ipa文件路径
+IPA_PATH="$HOME/${IPANAME}"
+echo ${IPA_PATH}
+echo "${IPA_PATH}">> text.txt
+
+#下面2行是没有Cocopods的用法
+echo "=================clean================="
+xcodebuild -target "${APP_NAME}"  -configuration 'Release' clean
+
+echo "+++++++++++++++++build+++++++++++++++++"
+xcodebuild -target "${APP_NAME}" -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY="${CODE_SIGN_DISTRIBUTION}" SYMROOT='$(PWD)'
+
+#//下面2行是集成有Cocopods的用法
+#echo "=================clean================="
+#xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}"  -configuration 'Release' clean
+
+#echo "+++++++++++++++++build+++++++++++++++++"
+#xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY="${CODE_SIGN_DISTRIBUTION}" SYMROOT='$(PWD)'
+
+xcrun -sdk iphoneos PackageApplication "./Release-iphoneos/${APP_NAME}.app" -o ~/"${IPANAME}"
+
+#蒲公英上的User Key
+uKey="9b0aa78a32a......4e1ca68bdbf"
+#蒲公英上的API Key
+apiKey="ac75fcf38.....7b9f19f2e4b23"
+#要上传的ipa文件路径
+IPA_PATH=$(cat text.txt)
+
+rm -rf text.txt
+
+#执行上传至蒲公英的命令
+echo "++++++++++++++upload+++++++++++++"
+curl -F "file=@${IPA_PATH}" -F "uKey=${uKey}" -F "_api_key=${apiKey}" https://www.pgyer.com/apiv1/app/upload
+</pre>
+
+<h3 id="构建项目"><a href="#构建项目" class="headerlink" title="构建项目"></a>构建项目</h3><p>以下是一次成功构建的输出信息</p>
+<pre>
+Started by user ooops
+Building in workspace /Users/ooops/.jenkins/workspace/test
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository //拉取GIT仓库
+ > git config remote.origin.url git@github.com:xxxxx/jenkinsTest.git # timeout=10
+Fetching upstream changes from git@github.com:xxxxx/jenkinsTest.git
+ > git --version # timeout=10
+ > git fetch --tags --progress git@github.com:xxxxx/jenkinsTest.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 1f023f0132273ddc4d3d98a8283e3a15bbe254aa (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1f023f0132273ddc4d3d98a8283e3a15bbe254aa
+ > git rev-list 1f023f0132273ddc4d3d98a8283e3a15bbe254aa # timeout=10
+[test] $ /bin/sh -xe /Users/ooops/apache-tomcat-7.0.75/temp/hudson6997647762219224773.sh
++ APP_NAME=jenkinsTest
++ CODE_SIGN_DISTRIBUTION='iPhone Developer: xxxxx'
++ project_infoplist_path=./jenkinsTest/Info.plist
+++ /usr/libexec/PlistBuddy -c 'print CFBundleShortVersionString' ./jenkinsTest/Info.plist
++ bundleShortVersion=1.0
+++ /usr/libexec/PlistBuddy -c 'print CFBundleVersion' ./jenkinsTest/Info.plist
++ bundleVersion=1
+++ date +%Y%m%d
++ DATE=20170312
++ IPANAME=jenkinsTest_V1.0_20170312.ipa
++ IPA_PATH=/Users/ooops/jenkinsTest_V1.0_20170312.ipa
++ echo /Users/ooops/jenkinsTest_V1.0_20170312.ipa
+/Users/ooops/jenkinsTest_V1.0_20170312.ipa
++ echo /Users/ooops/jenkinsTest_V1.0_20170312.ipa
++ echo =================clean=================
+=================clean=================
++ xcodebuild -target jenkinsTest -configuration Release clean
+2017-03-12 12:56:15.278 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/VVDocumenter-Xcode.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:15.279 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/HOStringSense.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:15.280 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ESJsonFormat.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:15.280 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Auto-Importer.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+=== CLEAN TARGET jenkinsTest OF PROJECT jenkinsTest WITH CONFIGURATION Release ===
+
+Check dependencies
+
+Create product structure
+/bin/mkdir -p /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app
+
+Clean.Remove clean build/jenkinsTest.build/Release-iphoneos/jenkinsTest.build
+    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/jenkinsTest.build/Release-iphoneos/jenkinsTest.build
+
+Clean.Remove clean build/Release-iphoneos/jenkinsTest.app
+    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app
+
+Clean.Remove clean build/Release-iphoneos/jenkinsTest.app.dSYM
+    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app.dSYM
+
+** CLEAN SUCCEEDED **
+
++ echo +++++++++++++++++build+++++++++++++++++
++++++++++++++++++build+++++++++++++++++
++ xcodebuild -target jenkinsTest -sdk iphoneos -configuration Release 'CODE_SIGN_IDENTITY=iPhone Developer: xxxxxxxxxxxxxxxx' 'SYMROOT=$(PWD)'
+2017-03-12 12:56:16.118 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxx8-C509-4xxB-8B55-84AxxxxxE701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/VVDocumenter-Xcode.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:16.119 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxxD8-C509-4D8B-8xxxx-84Axxxx01 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/HOStringSense.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:16.119 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DA4xxx8-C509-4Dxx-8xx5-84AxxxE701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ESJsonFormat.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2017-03-12 12:56:16.120 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID Dxxxx8-C509-xx-8B55-84xxxxxAE701 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Auto-Importer.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+Build settings from command line:
+    CODE_SIGN_IDENTITY = iPhone Developer: qiang zhang (36XGYU49EQ)
+    SDKROOT = iphoneos10.1
+    SYMROOT = $(PWD)
+
+=== BUILD TARGET jenkinsTest OF PROJECT jenkinsTest WITH CONFIGURATION Release ===
+
+Check dependencies
+
+Validate Release-iphoneos/jenkinsTest.app
+    cd /Users/ooops/.jenkins/workspace/test
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/ooops/.rvm/gems/ruby-2.2.2/bin:/Users/ooops/.rvm/gems/ruby-2.2.2@global/bin:/Users/ooops/.rvm/rubies/ruby-2.2.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ooops/.rvm/bin:/Users/ooops/.rvm/bin"
+    export PRODUCT_TYPE=com.apple.product-type.application
+    builtin-validationUtility /Users/ooops/.jenkins/workspace/test/Release-iphoneos/jenkinsTest.app -validate-for-store
+
+** BUILD SUCCEEDED **
+
++ xcrun -sdk iphoneos PackageApplication ./Release-iphoneos/jenkinsTest.app -o /Users/ooops/jenkinsTest_V1.0_20170312.ipa
+
+
+
+warning: PackageApplication is deprecated, use `xcodebuild -exportArchive` instead.
+
+//这里是上传蒲公英的配置.
++ uKey=9b0aa78a32........64e1ca68bdbf
++ apiKey=ac75fcf3..........a47b9f19f2e4b23
+++ cat text.txt
++ IPA_PATH=/Users/ooops/jenkinsTest_V1.0_20170312.ipa
++ rm -rf text.txt
++ echo ++++++++++++++upload+++++++++++++
+++++++++++++++upload+++++++++++++
++ curl -F file=@/Users/ooops/jenkinsTest_V1.0_20170312.ipa -F uKey=9b0aa78a32...af26..4e1ca68bdbf -F _api_key=ac75fcf38f2.........19f2e4b23 http://www.pgyer.com/apiv1/app/upload
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 32843    0     0  100 32843      0  21213  0:00:01  0:00:01 --:--:-- 21202
+100 32843    0     0  100 32843      0  12862  0:00:02  0:00:02 --:--:-- 12859
+100 33438  100   595  100 32843    220  12149  0:00:02  0:00:02 --:--:-- 12146
+{"code":0,"message":"","data":{"appKey":"dd580f5...........0305ac671","userKey":"9b0aa78a.........e1ca68bdbf","appType":"1","appIsLastest":"1","appFileSize":"32368","appName":"jenkinsTest","appVersion":"1.0","appVersionNo":"1","appBuildVersion":"2","appIdentifier":"com.ooops.pull","appIcon":"","appDescription":"","appUpdateDescription":"","appScreenshots":"","appShortcutUrl":"nZwg","appCreated":"2017-03-12 12:56:18","appUpdated":"2017-03-12 12:56:18","appQRCodeURL":"http:\/\/static.pgyer.com\/app\/qrcodeHistory\/ea895709d0e57a4a8e4c8f57811838b2ce985322a94f9443e64a0937c6d29e30"}}Finished: SUCCESS
+</pre>
+
+<h3 id="上传到蒲公英"><a href="#上传到蒲公英" class="headerlink" title="上传到蒲公英"></a>上传到蒲公英</h3><img src="http://q0du9mvt6.bkt.clouddn.com/images/jenkins/jenkins-pgy.png">
+<h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2017/03/12/Jenkins/">Jenkins一键发布 ipa 到蒲公英</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 张强 的个人博客">张强</a></p>
+  <p><span>发布时间:</span>2017年03月12日 - 19:03</p>
+  <p><span>最后更新:</span>2018年06月24日 - 15:06</p>
+  <p><span>原始链接:</span><a href="/2017/03/12/Jenkins/" title="Jenkins一键发布 ipa 到蒲公英">http://urm9ril.top/2017/03/12/Jenkins/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://urm9ril.top/2017/03/12/Jenkins/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa-window-minimize"></i>  ß感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jenkins/" <i class="fa fa-tags"></i>Jenkins</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/xcode/" rel="next" title="Xcode8控制台乱码问题">
+                <i class="fa fa-chevron-left"></i> Xcode8控制台乱码问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/XLForm-usage/" rel="prev" title="XLForm 表单库使用说明">
+                XLForm 表单库使用说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">张强</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+            <div id="days"></div>
+    </script>
+    <script language="javascript">
+    function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("06/10/2014 15:00:00");
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000
+        e_daysold = timeold / msPerDay
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = setzero(Math.floor(e_hrsold));
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+        seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+        document.getElementById('days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+    }
+    function setzero(i) {
+        if (i<10)
+        {i="0" + i};
+        return i;
+    }
+    show_date_time();
+</script>
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图已补-😓"><span class="nav-number">1.</span> <span class="nav-text">图已补 😓</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-05-20-由于不小心删除了配图仓库-图片都看不见了-有时间再给补上-各位观众老爷-轻喷"><span class="nav-number">2.</span> <span class="nav-text">2017.05.20 由于不小心删除了配图仓库,图片都看不见了,有时间再给补上, 各位观众老爷,轻喷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-Jenkins"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是 Jenkins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始安装Tomcat"><span class="nav-number">2.0.2.</span> <span class="nav-text">开始安装Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行Jenkins"><span class="nav-number">2.0.3.</span> <span class="nav-text">运行Jenkins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置GIT"><span class="nav-number">2.0.4.</span> <span class="nav-text">配置GIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#钥匙串和证书配置"><span class="nav-number">2.0.5.</span> <span class="nav-text">钥匙串和证书配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统全局配置"><span class="nav-number">2.0.6.</span> <span class="nav-text">系统全局配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面开始构建项目配置"><span class="nav-number">2.1.</span> <span class="nav-text">下面开始构建项目配置.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#General-参数"><span class="nav-number">2.1.1.</span> <span class="nav-text">General 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码管理-参数"><span class="nav-number">2.1.2.</span> <span class="nav-text">源码管理 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建触发器设置"><span class="nav-number">2.1.3.</span> <span class="nav-text">构建触发器设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建环境-参数"><span class="nav-number">2.1.4.</span> <span class="nav-text">构建环境 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建-设置"><span class="nav-number">2.1.5.</span> <span class="nav-text">构建 设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建项目"><span class="nav-number">2.1.6.</span> <span class="nav-text">构建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传到蒲公英"><span class="nav-number">2.1.7.</span> <span class="nav-text">上传到蒲公英</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">3.</span> <span class="nav-text">END</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="with-love">
+  (●'◡'●)ﾉ♥
+  </span>
+  <span class="author" itemprop="copyrightHolder">张强</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站总字数&#58;</span>
+    
+    <span title="全站总字数">14.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      你是本站第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>位访客
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      文章共批阅<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '7FNrT8jBTCLil5J7vFWmPVe3-gzGzoHsz',
+        appKey: 'Evbd5Bv3xxN8M3GybtBOyHXU',
+        placeholder: '畅所欲言,请尽可能留下真实的邮箱,以便交流.',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7FNrT8jBTCLil5J7vFWmPVe3-gzGzoHsz", "Evbd5Bv3xxN8M3GybtBOyHXU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "topCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;
+  <script>
+    $(document).ready(function(){
+      $('body').backstretch([
+        {url: "/images/background.png", fade: 4000},
+        {url: "/images/background01.jpg", fade: 4000},
+        {url: "/images/background02.jpg", fade: 4000},
+        {url: "/images/background03.jpg", fade: 4000}
+      ]);
+    });
+  </script> -->
+
+</body>
+</html>
