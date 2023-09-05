@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>七牛云图床 | ooops的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="为什么使用七牛云写 MarkDown 使用 Sublime Text ,可配合使用 数据同步插件,方便. 优点: 相对于直接部署 hexo d 到 github 来说访问速度更快.空间大稳定七牛云空间设置 1.注册七牛云账户 2.创建七牛云存储空间 3.点击页面右上角头像→进入”密钥管理“→复制当前使用中的AK和SK，待会设置插件时会用到. 设置 hexo-qiniu-sync 插件1.安装插件:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七牛云图床">
+<meta property="og:url" content="http://example.com/2017/06/13/2017/qiniucloud/index.html">
+<meta property="og:site_name" content="ooops的小站">
+<meta property="og:description" content="为什么使用七牛云写 MarkDown 使用 Sublime Text ,可配合使用 数据同步插件,方便. 优点: 相对于直接部署 hexo d 到 github 来说访问速度更快.空间大稳定七牛云空间设置 1.注册七牛云账户 2.创建七牛云存储空间 3.点击页面右上角头像→进入”密钥管理“→复制当前使用中的AK和SK，待会设置插件时会用到. 设置 hexo-qiniu-sync 插件1.安装插件:">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-06-13T03:02:33.000Z">
+<meta property="article:modified_time" content="2023-09-01T09:07:10.080Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ooops的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ooops的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2017/qiniucloud" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/06/13/2017/qiniucloud/" class="article-date">
+  <time class="dt-published" datetime="2017-06-13T03:02:33.000Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      七牛云图床
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="为什么使用七牛云"><a href="#为什么使用七牛云" class="headerlink" title="为什么使用七牛云"></a>为什么使用七牛云</h2><p>写 <code>MarkDown</code> 使用 <code>Sublime Text</code> ,可配合使用 数据同步插件,方便.</p>
+<p>优点:</p>
+<p>相对于直接部署 <code>hexo d</code> 到 <code>github</code> 来说访问速度更快.<br>空间大<br>稳定<br>七牛云空间设置</p>
+<p>1.注册七牛云账户</p>
+<p>2.创建七牛云存储空间</p>
+<p>3.点击页面右上角头像→进入”密钥管理“→复制当前使用中的AK和SK，待会设置插件时会用到.</p>
+<h2 id="设置-hexo-qiniu-sync-插件"><a href="#设置-hexo-qiniu-sync-插件" class="headerlink" title="设置 hexo-qiniu-sync 插件"></a>设置 hexo-qiniu-sync 插件</h2><p>1.安装插件:在hexo主目录下运行以下命令:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-qiniu-sync --save</span><br></pre></td></tr></table></figure>
+
+<p>2.添加插件配置到站点配置文件 <code>_config.yml</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">plugins: hexo-qiniu-sync</span><br><span class="line"></span><br><span class="line">qiniu:</span><br><span class="line">  offline: <span class="literal">false</span></span><br><span class="line">  sync: <span class="literal">true</span></span><br><span class="line">  bucket: image</span><br><span class="line">  access_key: ak</span><br><span class="line">  secret_key: sk</span><br><span class="line">  dirPrefix:</span><br><span class="line">  urlPrefix: http:<span class="comment">//paj20wmcz.bkt.clouddn.com</span></span><br><span class="line">  local_dir: cdn</span><br><span class="line">  update_exist: <span class="literal">true</span></span><br><span class="line">  image:</span><br><span class="line">    folder: images</span><br><span class="line">  js:</span><br><span class="line">    folder: js</span><br><span class="line">  css:</span><br><span class="line">    folder: css</span><br></pre></td></tr></table></figure>
+
+<h2 id="几个需要修改的地方"><a href="#几个需要修改的地方" class="headerlink" title="几个需要修改的地方:"></a>几个需要修改的地方:</h2><p><code>bucket</code>: 修改为你刚才申请的七牛空间名称<br><code>access_key</code> <code>secret_key</code>:上传密钥 <code>AccessKey</code>、<code>SecretKey</code>.即3 第3步复制的<code>AK</code>和<code>SK</code>.<br><code>urlPrefix</code>: 七牛空间地址的前缀.重要！必填！ <a target="_blank" rel="noopener" href="http://paj20wmcz.bkt.clouddn.com/">http://paj20wmcz.bkt.clouddn.com</a><br>你可以进入自己创建的空间在域名设置中看到自己的七牛测试域名,<br>这个参数的设置是保证解析成网页文件时，外链地址正确的关键之一！</p>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><p><code>offline</code> :是否离线.设置为 true 将在本地预览时使用本地地址渲染，省流量 false 将使用同步到七牛空间的静态资源渲染，方便检查资源链接是否正确.</p>
+<p><code>sync</code> :是否同步到七牛，一般都是设置 true .</p>
+<p><code>dirPrefix</code> :资源将上传到七牛空间的此目录下，可像我一样设置为空.</p>
+<p>该参数会影响外链的地址，如果设置为非空值，例如默认值 static ，则 </p>
+<p><code>urlPrefix</code> 为保持一致需加上目录后缀 &#x2F;static ，改为 <a target="_blank" rel="noopener" href="http://paj20wmcz.bkt.clouddn.com/static">http://paj20wmcz.bkt.clouddn.com/static</a> .</p>
+<p><code>local_dir</code> :本地资源储存目录.在本例中，待上传的资源都储存在 hexo 主目录中的 cdn 文件夹（也就是与 source 目录平级）中.</p>
+<p><code>update_exist</code> :设置为 true ，则会在文件更新之后重新上传并更新七牛空间上中的原有文件.</p>
+<p><code>image/js/css</code> :子参数 folder 为不同静态资源种类的目录名称，一般不需要改动</p>
+<h2 id="配置本地目录"><a href="#配置本地目录" class="headerlink" title="配置本地目录"></a>配置本地目录</h2><p>本地目录名称需要与 <code>local_dir</code> 参数的值一致。所以在 <code>hexo</code> 主目录 下新建与 <code>source</code> 平级的目录 <code>cdn</code> ，用于存放需要上传到七牛的资源。</p>
+<p>在 cdn 目录下创建子目录： <code>css</code> 、 <code>images</code> 、 <code>js</code> ，与 image&#x2F;js&#x2F;css 子参数 folder 保持一致，待上传的 <code>css</code>、<code>image</code>、<code>js</code> 文件应该存储到相应子目录。也可新建其他子目录,用于不同文件类型的存放</p>
+<h2 id="Hexo主目录结构如下："><a href="#Hexo主目录结构如下：" class="headerlink" title="Hexo主目录结构如下："></a>Hexo主目录结构如下：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├─.deploy_git</span><br><span class="line">├─cdn</span><br><span class="line">│ ├─css</span><br><span class="line">│ ├─images</span><br><span class="line">│ └─js</span><br><span class="line">├─node_modules</span><br><span class="line">├─public</span><br><span class="line">├─scaffolds</span><br><span class="line">├─source</span><br><span class="line">└─theme</span><br></pre></td></tr></table></figure>
+<p><code>MarkDown</code> 中如何使用七牛资源?</p>
+<p>这里正好使用到了之前安装的插件</p>
+<h2 id="插入图片资源"><a href="#插入图片资源" class="headerlink" title="插入图片资源"></a>插入图片资源</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% qnimg xxx.png %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>高级一点的用法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% qnimg xxxx.png title:标题 alt:说明 <span class="string">&#x27;class:class1 class2&#x27;</span> %&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/06/13/2017/qiniucloud/" data-id="clm61xg4z00059s91887t0myy" data-title="七牛云图床" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/31/2017/ScreenShare/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          全屏截图分享
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/11/2017/OpenInstall/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用OpenInstall</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cordova/" rel="tag">cordova</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cordova/" style="font-size: 10px;">cordova</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/11/2023/CTMediator/">CTMediator 组件完整性检查工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/DataBase/">DataBase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/CI_ENV/">自用 CI 环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/Fastlane/">Fastlane</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/H5/">H5</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

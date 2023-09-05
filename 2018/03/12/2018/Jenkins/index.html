@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Jenkins一键发布ipa到蒲公英 | ooops的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="什么是 JenkinsJenkins 是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装 建议下载 .war文件 配合Tomcat环境使用. 直接下载了.war文件，这个文件是直接放在Tomcat下webapps目录下. 优点:它的权限就是当前用户. 开始安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins一键发布ipa到蒲公英">
+<meta property="og:url" content="http://example.com/2018/03/12/2018/Jenkins/index.html">
+<meta property="og:site_name" content="ooops的小站">
+<meta property="og:description" content="什么是 JenkinsJenkins 是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装 建议下载 .war文件 配合Tomcat环境使用. 直接下载了.war文件，这个文件是直接放在Tomcat下webapps目录下. 优点:它的权限就是当前用户. 开始安装">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-12T13:29:30.000Z">
+<meta property="article:modified_time" content="2023-09-01T09:39:11.048Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ooops的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ooops的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2018/Jenkins" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/12/2018/Jenkins/" class="article-date">
+  <time class="dt-published" datetime="2018-03-12T13:29:30.000Z" itemprop="datePublished">2018-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Jenkins一键发布ipa到蒲公英
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是-Jenkins"><a href="#什么是-Jenkins" class="headerlink" title="什么是 Jenkins"></a>什么是 Jenkins</h2><p><code>Jenkins</code> 是一个持续集成工具，它可以在设定的某个时间点（或者代码有更新等情况）自动去构建安装包，同时可以将安装包上传到第三方平台，比如：Bugly、蒲公英，这样测试人员可以通过微信、QQ扫一扫直接安装</p>
+<p>建议下载 .war文件 配合<code>Tomcat</code>环境使用.</p>
+<p>直接下载了.war文件，这个文件是直接放在<code>Tomcat</code>下<code>webapps</code>目录下.</p>
+<p>优点:它的权限就是当前用户.</p>
+<p>开始安装<code>Tomcat</code></p>
+<p>把下载好的 <code>Tomcat</code> 文件夹 放到你想放的目录</p>
+<p>然后把 <code>.war</code> 文件放入<code>Tomcat</code>文件夹下的 <code>webapps</code> 目录下</p>
+<h2 id="运行Jenkins"><a href="#运行Jenkins" class="headerlink" title="运行Jenkins"></a>运行<code>Jenkins</code></h2><p>命令行进入<code>Tomcat</code>安装目录.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Users/ooops/apache-tomcat-7.0.75/bin</span><br></pre></td></tr></table></figure>
+<p>可能会报 <code>-bash: /Users/ooops/apache-tomcat-7.0.75/bin/startup.sh: Permission denied</code>错误,这是因为对该文件没有执行权限造成的. 执行如下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x *.sh</span><br></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh startup.sh</span><br></pre></td></tr></table></figure>
+<p>打开浏览器输入 <code>localhost:8080</code> 看到 <code>Tomcat</code>启动页面,表示<code>Tomcat</code>安装成功 进入<code>Tomcat</code>目录下 <code>conf</code>打开 <code>tomcat-users.xml</code>文件,在文件根节点结束之前添加如下配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">&quot;admin&quot;</span> <span class="attr">password</span>=<span class="string">&quot;admin&quot;</span> <span class="attr">roles</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>设置<code>Tomcat</code>的登录信息 使用如下命令重启<code>Tomcat</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Users/ooops/apache-tomcat-7.0.75/bin</span><br><span class="line">sh shutdown.sh</span><br><span class="line">sh startup.sh</span><br></pre></td></tr></table></figure>
+<p>再次访问 <code>localhost:8080</code> 选择 <code>Manager Apps</code> 登录<code>Tomcat</code>,选择列表中<code>Jenkins</code> 输入如下命令查看<code>Jenkins</code>初始密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open /Users/ooops/.jenkins/secrets/initialAdminPassword</span><br></pre></td></tr></table></figure>
+<p>粘贴初始密码,点击继续,等待片刻</p>
+<p>选择<code>Install suggested plugins</code> 安装推荐的 <code>Jenkins</code> 插件</p>
+<p>推荐的插件安装完毕,还有我们自己需要的插件安装</p>
+<p>首先进入插件管理器界面,进入方式: 系统管理-&gt;管理插件</p>
+<p>在可选插件中搜索我们需要的插件,进行安装</p>
+<p>GIT 环境下我们需要安装的插件有 三 个</p>
+<ul>
+<li>Gitlab Hook Plugin 因为我们用的是GitLab来管理源代码，Jenkins本身并没有自带GitLab插件</li>
+<li>Xcode Xcode环境插件.</li>
+<li>Keychains and Provisioning Profiles Management 钥匙串和证书配置</li>
+</ul>
+<h2 id="配置GIT"><a href="#配置GIT" class="headerlink" title="配置GIT"></a>配置GIT</h2><p>私钥文件位置 家目录下的 <code>.ssh</code> 文件夹下</p>
+<p>配置 <code>GIT</code> 私钥</p>
+<h2 id="钥匙串和证书配置"><a href="#钥匙串和证书配置" class="headerlink" title="钥匙串和证书配置"></a>钥匙串和证书配置</h2><p>进入方式: 系统管理-&gt;<code>Keychains and Provisioning Profiles Management</code></p>
+<p>钥匙串文件路径 : <code>/Users/用户名(your user name)/Library/Keychains/login.keychain</code></p>
+<p>上传钥匙串 <code>keychain</code> 和 证书描述文件 <code>Provisioning Profile</code></p>
+<p>上传之后的要是串和证书描述文件会被<code>Jenkins</code></p>
+<p>保存在<code>/Users/改成你的(your user name)/.jenkins/kpp_upload</code>目录下</p>
+<p>配置对应的钥匙串中的开发(调试) 生产(发布) 证书</p>
+<p>首先打开钥匙串,获取证书的常用名称</p>
+<p>我们将证书的常用名称点入 钥匙串的配置中,具体配置参考下图</p>
+<p>上图目录配置,改为<code>/Users/改成你的(your user name)/.jenkins/kpp_upload</code>.偷个懒 不补图了.</p>
+<p>点击确定完成配置.</p>
+<h2 id="系统全局配置"><a href="#系统全局配置" class="headerlink" title="系统全局配置"></a>系统全局配置</h2><p><code>Jenkins</code> 主页 -&gt; 系统管理 -&gt; 系统设置 -&gt; 全局属性 -&gt; 勾选<code>Keychains and</code></p>
+<p><code>Provisioning Profiles Management</code> 填入上传到 <code>Jenkins</code> 的证书和描述文件目录</p>
+<p><code>/Users/ooops(你的用户名)/.jenkins/kpp_upload</code></p>
+<h2 id="下面开始构建项目配置"><a href="#下面开始构建项目配置" class="headerlink" title="下面开始构建项目配置."></a>下面开始构建项目配置.</h2><p>创建一个多配置的项目</p>
+<h3 id="General-参数"><a href="#General-参数" class="headerlink" title="General 参数"></a>General 参数</h3><h3 id="源码管理-参数"><a href="#源码管理-参数" class="headerlink" title="源码管理 参数"></a>源码管理 参数</h3><h3 id="构建触发器设置"><a href="#构建触发器设置" class="headerlink" title="构建触发器设置"></a>构建触发器设置</h3><p>这里是设置自动化测试的地方。<br>涉及的内容很多，<br>暂时我也没有深入研究，这里暂时先不设置。<br>有自动化测试需求的可以 研究研究这里的设置。</p>
+<p>不过这里两个配置还是需要是设置的</p>
+<p><code>Poll SCM (poll source code management)</code> 轮询源码管理</p>
+<p>需要设置源码的路径才能起到轮询的效果。</p>
+<p>一般设置为类似结果： 0&#x2F;5 每5分钟轮询一次</p>
+<p><code>Build periodically</code> (定时构建)</p>
+<p>一般设置为类似： 00 20 * 每天 20点执行定时构建</p>
+<p>格式如下 (具体可以参考后面的小问号??) 嘿嘿</p>
+<p>分钟(0-59) 小时(0-23) 日期(1-31) 月(1-12) 周几(0-7,0和7都是周日)</p>
+<p>设置之后文本输入域下面会有你填写格式的翻译.</p>
+<p>参数配置参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xueyingqi/article/details/53216506">https://blog.csdn.net/xueyingqi/article/details/53216506</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yezicjj/article/details/52763700">https://blog.csdn.net/yezicjj/article/details/52763700</a></p>
+<h2 id="构建环境-参数"><a href="#构建环境-参数" class="headerlink" title="构建环境 参数"></a>构建环境 参数</h2><p>参考下图设置</p>
+<p>请参考 钥匙串和证书配置 中关于钥匙串的配置.</p>
+<h2 id="构建-设置"><a href="#构建-设置" class="headerlink" title="构建 设置"></a>构建 设置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工程名</span></span><br><span class="line">APP_NAME=<span class="string">&quot;你的项目名称&quot;</span></span><br><span class="line"><span class="comment"># 证书</span></span><br><span class="line">CODE_SIGN_DISTRIBUTION=<span class="string">&quot;iPhone Developer: XXXXXXX&quot;</span></span><br><span class="line"><span class="comment">#CODE_SIGN_DISTRIBUTION=&quot;iPhone Distribution: XXXXXXXXXX&quot;</span></span><br><span class="line"><span class="comment"># info.plist路径</span></span><br><span class="line">project_infoplist_path=<span class="string">&quot;./<span class="variable">$&#123;APP_NAME&#125;</span>/Info.plist&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#取版本号</span></span><br><span class="line">bundleShortVersion=$(/usr/libexec/PlistBuddy -c <span class="string">&quot;print CFBundleShortVersionString&quot;</span> <span class="string">&quot;<span class="variable">$&#123;project_infoplist_path&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#取build值</span></span><br><span class="line">bundleVersion=$(/usr/libexec/PlistBuddy -c <span class="string">&quot;print CFBundleVersion&quot;</span> <span class="string">&quot;<span class="variable">$&#123;project_infoplist_path&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">DATE=<span class="string">&quot;<span class="subst">$(date +%Y%m%d)</span>&quot;</span></span><br><span class="line">IPANAME=<span class="string">&quot;<span class="variable">$&#123;APP_NAME&#125;</span>_V<span class="variable">$&#123;bundleShortVersion&#125;</span>_<span class="variable">$&#123;DATE&#125;</span>.ipa&quot;</span></span><br><span class="line"><span class="comment">#IPANAME=&quot;$&#123;APP_NAME&#125;.ipa&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#要上传的ipa文件路径</span></span><br><span class="line">IPA_PATH=<span class="string">&quot;<span class="variable">$HOME</span>/<span class="variable">$&#123;IPANAME&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;IPA_PATH&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$&#123;IPA_PATH&#125;</span>&quot;</span>&gt;&gt; text.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#下面2行是没有Cocopods的用法</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=================clean=================&quot;</span></span><br><span class="line">xcodebuild -target <span class="string">&quot;<span class="variable">$&#123;APP_NAME&#125;</span>&quot;</span>  -configuration <span class="string">&#x27;Release&#x27;</span> clean</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;+++++++++++++++++build+++++++++++++++++&quot;</span></span><br><span class="line">xcodebuild -target <span class="string">&quot;<span class="variable">$&#123;APP_NAME&#125;</span>&quot;</span> -sdk iphoneos -configuration <span class="string">&#x27;Release&#x27;</span> CODE_SIGN_IDENTITY=<span class="string">&quot;<span class="variable">$&#123;CODE_SIGN_DISTRIBUTION&#125;</span>&quot;</span> SYMROOT=<span class="string">&#x27;$(PWD)&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#//下面2行是集成有Cocopods的用法</span></span><br><span class="line"><span class="comment">#echo &quot;=================clean=================&quot;</span></span><br><span class="line"><span class="comment">#xcodebuild -workspace &quot;$&#123;APP_NAME&#125;.xcworkspace&quot; -scheme &quot;$&#123;APP_NAME&#125;&quot;  -configuration &#x27;Release&#x27; clean</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#echo &quot;+++++++++++++++++build+++++++++++++++++&quot;</span></span><br><span class="line"><span class="comment">#xcodebuild -workspace &quot;$&#123;APP_NAME&#125;.xcworkspace&quot; -scheme &quot;$&#123;APP_NAME&#125;&quot; -sdk iphoneos -configuration &#x27;Release&#x27; CODE_SIGN_IDENTITY=&quot;$&#123;CODE_SIGN_DISTRIBUTION&#125;&quot; SYMROOT=&#x27;$(PWD)&#x27;</span></span><br><span class="line"></span><br><span class="line">xcrun -sdk iphoneos PackageApplication <span class="string">&quot;./Release-iphoneos/<span class="variable">$&#123;APP_NAME&#125;</span>.app&quot;</span> -o ~/<span class="string">&quot;<span class="variable">$&#123;IPANAME&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#蒲公英上的User Key</span></span><br><span class="line">uKey=<span class="string">&quot;9b0aa78a32a......4e1ca68bdbf&quot;</span></span><br><span class="line"><span class="comment">#蒲公英上的API Key</span></span><br><span class="line">apiKey=<span class="string">&quot;ac75fcf38.....7b9f19f2e4b23&quot;</span></span><br><span class="line"><span class="comment">#要上传的ipa文件路径</span></span><br><span class="line">IPA_PATH=$(<span class="built_in">cat</span> text.txt)</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf text.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行上传至蒲公英的命令</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;++++++++++++++upload+++++++++++++&quot;</span></span><br><span class="line">curl -F <span class="string">&quot;file=@<span class="variable">$&#123;IPA_PATH&#125;</span>&quot;</span> -F <span class="string">&quot;uKey=<span class="variable">$&#123;uKey&#125;</span>&quot;</span> -F <span class="string">&quot;_api_key=<span class="variable">$&#123;apiKey&#125;</span>&quot;</span> https://www.pgyer.com/apiv1/app/upload</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建项目"><a href="#构建项目" class="headerlink" title="构建项目"></a>构建项目</h2><p>以下是一次成功构建的输出信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">Started by user ooops</span><br><span class="line">Building <span class="keyword">in</span> workspace /Users/ooops/.jenkins/workspace/test</span><br><span class="line"> &gt; git rev-parse --is-inside-work-tree <span class="comment"># timeout=10</span></span><br><span class="line">Fetching changes from the remote Git repository //拉取GIT仓库</span><br><span class="line"> &gt; git config remote.origin.url git@github.com:xxxxx/jenkinsTest.git <span class="comment"># timeout=10</span></span><br><span class="line">Fetching upstream changes from git@github.com:xxxxx/jenkinsTest.git</span><br><span class="line"> &gt; git --version <span class="comment"># timeout=10</span></span><br><span class="line"> &gt; git fetch --tags --progress git@github.com:xxxxx/jenkinsTest.git +refs/heads/*:refs/remotes/origin/*</span><br><span class="line"> &gt; git rev-parse refs/remotes/origin/master^&#123;commit&#125; <span class="comment"># timeout=10</span></span><br><span class="line"> &gt; git rev-parse refs/remotes/origin/origin/master^&#123;commit&#125; <span class="comment"># timeout=10</span></span><br><span class="line">Checking out Revision 1f023f0132273ddc4d3d98a8283e3a15bbe254aa (refs/remotes/origin/master)</span><br><span class="line"> &gt; git config core.sparsecheckout <span class="comment"># timeout=10</span></span><br><span class="line"> &gt; git checkout -f 1f023f0132273ddc4d3d98a8283e3a15bbe254aa</span><br><span class="line"> &gt; git rev-list 1f023f0132273ddc4d3d98a8283e3a15bbe254aa <span class="comment"># timeout=10</span></span><br><span class="line">[<span class="built_in">test</span>] $ /bin/sh -xe /Users/ooops/apache-tomcat-7.0.75/temp/hudson6997647762219224773.sh</span><br><span class="line">+ APP_NAME=jenkinsTest</span><br><span class="line">+ CODE_SIGN_DISTRIBUTION=<span class="string">&#x27;iPhone Developer: xxxxx&#x27;</span></span><br><span class="line">+ project_infoplist_path=./jenkinsTest/Info.plist</span><br><span class="line">++ /usr/libexec/PlistBuddy -c <span class="string">&#x27;print CFBundleShortVersionString&#x27;</span> ./jenkinsTest/Info.plist</span><br><span class="line">+ bundleShortVersion=1.0</span><br><span class="line">++ /usr/libexec/PlistBuddy -c <span class="string">&#x27;print CFBundleVersion&#x27;</span> ./jenkinsTest/Info.plist</span><br><span class="line">+ bundleVersion=1</span><br><span class="line">++ <span class="built_in">date</span> +%Y%m%d</span><br><span class="line">+ DATE=20170312</span><br><span class="line">+ IPANAME=jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">+ IPA_PATH=/Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">+ <span class="built_in">echo</span> /Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">/Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">+ <span class="built_in">echo</span> /Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">+ <span class="built_in">echo</span> =================clean=================</span><br><span class="line">=================clean=================</span><br><span class="line">+ xcodebuild -target jenkinsTest -configuration Release clean</span><br><span class="line">2017-03-12 12:56:15.278 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/VVDocumenter-Xcode.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:15.279 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/HOStringSense.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:15.280 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ESJsonFormat.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:15.280 xcodebuild[12363:1935879] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxD8-C509-4xB-8xx5-84xxxxxxx701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Auto-Importer.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">=== CLEAN TARGET jenkinsTest OF PROJECT jenkinsTest WITH CONFIGURATION Release ===</span><br><span class="line"></span><br><span class="line">Check dependencies</span><br><span class="line"></span><br><span class="line">Create product structure</span><br><span class="line">/bin/mkdir -p /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app</span><br><span class="line"></span><br><span class="line">Clean.Remove clean build/jenkinsTest.build/Release-iphoneos/jenkinsTest.build</span><br><span class="line">    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/jenkinsTest.build/Release-iphoneos/jenkinsTest.build</span><br><span class="line"></span><br><span class="line">Clean.Remove clean build/Release-iphoneos/jenkinsTest.app</span><br><span class="line">    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app</span><br><span class="line"></span><br><span class="line">Clean.Remove clean build/Release-iphoneos/jenkinsTest.app.dSYM</span><br><span class="line">    builtin-rm -rf /Users/ooops/.jenkins/workspace/test/build/Release-iphoneos/jenkinsTest.app.dSYM</span><br><span class="line"></span><br><span class="line">** CLEAN SUCCEEDED **</span><br><span class="line"></span><br><span class="line">+ <span class="built_in">echo</span> +++++++++++++++++build+++++++++++++++++</span><br><span class="line">+++++++++++++++++build+++++++++++++++++</span><br><span class="line">+ xcodebuild -target jenkinsTest -sdk iphoneos -configuration Release <span class="string">&#x27;CODE_SIGN_IDENTITY=iPhone Developer: xxxxxxxxxxxxxxxx&#x27;</span> <span class="string">&#x27;SYMROOT=$(PWD)&#x27;</span></span><br><span class="line">2017-03-12 12:56:16.118 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxx8-C509-4xxB-8B55-84AxxxxxE701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/VVDocumenter-Xcode.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:16.119 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DAxxxxD8-C509-4D8B-8xxxx-84Axxxx01 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/HOStringSense.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:16.119 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID DA4xxx8-C509-4Dxx-8xx5-84AxxxE701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ESJsonFormat.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">2017-03-12 12:56:16.120 xcodebuild[12376:1936105] [MT] PluginLoading: Required plug-in compatibility UUID Dxxxx8-C509-xx-8B55-84xxxxxAE701 <span class="keyword">for</span> plug-in at path <span class="string">&#x27;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Auto-Importer.xcplugin&#x27;</span> not present <span class="keyword">in</span> DVTPlugInCompatibilityUUIDs</span><br><span class="line">Build settings from <span class="built_in">command</span> line:</span><br><span class="line">    CODE_SIGN_IDENTITY = iPhone Developer: qiang zhang (36XGYU49EQ)</span><br><span class="line">    SDKROOT = iphoneos10.1</span><br><span class="line">    SYMROOT = $(PWD)</span><br><span class="line"></span><br><span class="line">=== BUILD TARGET jenkinsTest OF PROJECT jenkinsTest WITH CONFIGURATION Release ===</span><br><span class="line"></span><br><span class="line">Check dependencies</span><br><span class="line"></span><br><span class="line">Validate Release-iphoneos/jenkinsTest.app</span><br><span class="line">    <span class="built_in">cd</span> /Users/ooops/.jenkins/workspace/test</span><br><span class="line">    <span class="built_in">export</span> PATH=<span class="string">&quot;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/ooops/.rvm/gems/ruby-2.2.2/bin:/Users/ooops/.rvm/gems/ruby-2.2.2@global/bin:/Users/ooops/.rvm/rubies/ruby-2.2.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ooops/.rvm/bin:/Users/ooops/.rvm/bin&quot;</span></span><br><span class="line">    <span class="built_in">export</span> PRODUCT_TYPE=com.apple.product-type.application</span><br><span class="line">    builtin-validationUtility /Users/ooops/.jenkins/workspace/test/Release-iphoneos/jenkinsTest.app -validate-for-store</span><br><span class="line"></span><br><span class="line">** BUILD SUCCEEDED **</span><br><span class="line"></span><br><span class="line">+ xcrun -sdk iphoneos PackageApplication ./Release-iphoneos/jenkinsTest.app -o /Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">warning: PackageApplication is deprecated, use `xcodebuild -exportArchive` instead.</span><br><span class="line"></span><br><span class="line">//这里是上传蒲公英的配置.</span><br><span class="line">+ uKey=9b0aa78a32........64e1ca68bdbf</span><br><span class="line">+ apiKey=ac75fcf3..........a47b9f19f2e4b23</span><br><span class="line">++ <span class="built_in">cat</span> text.txt</span><br><span class="line">+ IPA_PATH=/Users/ooops/jenkinsTest_V1.0_20170312.ipa</span><br><span class="line">+ <span class="built_in">rm</span> -rf text.txt</span><br><span class="line">+ <span class="built_in">echo</span> ++++++++++++++upload+++++++++++++</span><br><span class="line">++++++++++++++upload+++++++++++++</span><br><span class="line">+ curl -F file=@/Users/ooops/jenkinsTest_V1.0_20170312.ipa -F uKey=9b0aa78a32...af26..4e1ca68bdbf -F _api_key=ac75fcf38f2.........19f2e4b23 http://www.pgyer.com/apiv1/app/upload</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line"></span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">100 32843    0     0  100 32843      0  21213  0:00:01  0:00:01 --:--:-- 21202</span><br><span class="line">100 32843    0     0  100 32843      0  12862  0:00:02  0:00:02 --:--:-- 12859</span><br><span class="line">100 33438  100   595  100 32843    220  12149  0:00:02  0:00:02 --:--:-- 12146</span><br><span class="line">&#123;<span class="string">&quot;code&quot;</span>:0,<span class="string">&quot;message&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;data&quot;</span>:&#123;<span class="string">&quot;appKey&quot;</span>:<span class="string">&quot;dd580f5...........0305ac671&quot;</span>,<span class="string">&quot;userKey&quot;</span>:<span class="string">&quot;9b0aa78a.........e1ca68bdbf&quot;</span>,<span class="string">&quot;appType&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;appIsLastest&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;appFileSize&quot;</span>:<span class="string">&quot;32368&quot;</span>,<span class="string">&quot;appName&quot;</span>:<span class="string">&quot;jenkinsTest&quot;</span>,<span class="string">&quot;appVersion&quot;</span>:<span class="string">&quot;1.0&quot;</span>,<span class="string">&quot;appVersionNo&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;appBuildVersion&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;appIdentifier&quot;</span>:<span class="string">&quot;com.ooops.pull&quot;</span>,<span class="string">&quot;appIcon&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;appDescription&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;appUpdateDescription&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;appScreenshots&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;appShortcutUrl&quot;</span>:<span class="string">&quot;nZwg&quot;</span>,<span class="string">&quot;appCreated&quot;</span>:<span class="string">&quot;2017-03-12 12:56:18&quot;</span>,<span class="string">&quot;appUpdated&quot;</span>:<span class="string">&quot;2017-03-12 12:56:18&quot;</span>,<span class="string">&quot;appQRCodeURL&quot;</span>:<span class="string">&quot;http:\/\/static.pgyer.com\/app\/qrcodeHistory\/ea895709d0e57a4a8e4c8f57811838b2ce985322a94f9443e64a0937c6d29e30&quot;</span>&#125;&#125;Finished: SUCCESS</span><br></pre></td></tr></table></figure>
+<p>上传到蒲公英</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/12/2018/Jenkins/" data-id="clm61xg55000f9s9198j5gbxi" data-title="Jenkins一键发布ipa到蒲公英" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/12/2019/Tomcat/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Tomcat
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/27/2018/CustomUILabel/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自定义控件-UILabel</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cordova/" rel="tag">cordova</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cordova/" style="font-size: 10px;">cordova</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/11/2023/CTMediator/">CTMediator 组件完整性检查工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/DataBase/">DataBase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/CI_ENV/">自用 CI 环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/Fastlane/">Fastlane</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/H5/">H5</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

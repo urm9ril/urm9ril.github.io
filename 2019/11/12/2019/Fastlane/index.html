@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Fastlane | ooops的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Fastlane 的安装Fastlane 官方文档  Fastlane 官方文档 12345$ xcode-select --install出现 xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; to install updates表示已经安装过 xcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fastlane">
+<meta property="og:url" content="http://example.com/2019/11/12/2019/Fastlane/index.html">
+<meta property="og:site_name" content="ooops的小站">
+<meta property="og:description" content="Fastlane 的安装Fastlane 官方文档  Fastlane 官方文档 12345$ xcode-select --install出现 xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; to install updates表示已经安装过 xcode">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-12T13:44:51.000Z">
+<meta property="article:modified_time" content="2023-09-05T08:08:23.050Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ooops的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ooops的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2019/Fastlane" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/11/12/2019/Fastlane/" class="article-date">
+  <time class="dt-published" datetime="2019-11-12T13:44:51.000Z" itemprop="datePublished">2019-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Fastlane
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="Fastlane-的安装"><a href="#Fastlane-的安装" class="headerlink" title="Fastlane 的安装"></a>Fastlane 的安装</h4><p><code>Fastlane 官方文档</code>  <a target="_blank" rel="noopener" href="https://docs.fastlane.tools/">Fastlane 官方文档</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br><span class="line"></span><br><span class="line">出现 </span><br><span class="line">xcode-select: error: <span class="built_in">command</span> line tools are already installed, use <span class="string">&quot;Software Update&quot;</span> to install updates</span><br><span class="line">表示已经安装过 xcode <span class="built_in">command</span> line tools</span><br></pre></td></tr></table></figure>
+
+<p>继续执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install -n /usr/local/bin fastlane -NV</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">Successfully installed fastlane-2.130.0</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
+
+<p>安装 Fastlane</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew install fastlane</span><br><span class="line">.......</span><br><span class="line">After doing so close the terminal session and restart it to start using fastlane ?</span><br><span class="line">?  fastlane was successfully installed!</span><br></pre></td></tr></table></figure>
+
+<h5 id="对-Jenkins-构建项目实行-fastlane-化构建"><a href="#对-Jenkins-构建项目实行-fastlane-化构建" class="headerlink" title="对 Jenkins 构建项目实行 fastlane 化构建"></a>对 Jenkins 构建项目实行 <code>fastlane</code> 化构建</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/your_user_name/.jenkins/workspace/your project </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastlane init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[✔] Looking <span class="keyword">for</span> iOS and Android projects <span class="keyword">in</span> current directory...</span><br><span class="line">[15:03:11]: Created new folder <span class="string">&#x27;./fastlane&#x27;</span>.</span><br><span class="line">[15:03:11]: Detected an iOS/macOS project <span class="keyword">in</span> the current directory: <span class="string">&#x27;Jenkins.xcworkspace&#x27;</span></span><br><span class="line">[15:03:11]: -----------------------------</span><br><span class="line">[15:03:11]: --- Welcome to fastlane 🚀 ---</span><br><span class="line">[15:03:11]: -----------------------------</span><br><span class="line">[15:03:11]: fastlane can <span class="built_in">help</span> you with all kinds of automation <span class="keyword">for</span> your mobile app</span><br><span class="line">[15:03:11]: We recommend automating one task first, and <span class="keyword">then</span> gradually automating more over time</span><br><span class="line">[15:03:11]: What would you like to use fastlane <span class="keyword">for</span>?</span><br><span class="line">1. 📸  Automate screenshots</span><br><span class="line">2. 👩‍✈️  Automate beta distribution to TestFlight</span><br><span class="line">3. 🚀  Automate App Store distribution</span><br><span class="line">4. 🛠  Manual setup - manually setup your project to automate your tasks</span><br><span class="line">?  4</span><br><span class="line">[15:03:22]: ------------------------------------------------------------</span><br><span class="line">[15:03:22]: --- Setting up fastlane so you can manually configure it ---</span><br><span class="line">[15:03:22]: ------------------------------------------------------------</span><br><span class="line">[15:03:22]: Installing dependencies <span class="keyword">for</span> you...</span><br><span class="line">[15:03:22]: $ bundle update</span><br></pre></td></tr></table></figure>
+<p>这里可以去喝个咖啡 &#x2F; 抽根烟啥的. 还可以 更换 <code>gem</code> 源.<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7f9c7168eb5e">如果 <code>Fastlane bundle update</code> 卡住解决方案</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">[Jenkins:Jenkins ooops$ fastlane init</span><br><span class="line">[✔] 🚀 </span><br><span class="line">[✔] Looking <span class="keyword">for</span> iOS and Android projects <span class="keyword">in</span> current directory...</span><br><span class="line">[15:03:11]: Created new folder <span class="string">&#x27;./fastlane&#x27;</span>.</span><br><span class="line">[15:03:11]: Detected an iOS/macOS project <span class="keyword">in</span> the current directory: <span class="string">&#x27;Jenkins.xcworkspace&#x27;</span></span><br><span class="line">[15:03:11]: -----------------------------</span><br><span class="line">[15:03:11]: --- Welcome to fastlane 🚀 ---</span><br><span class="line">[15:03:11]: -----------------------------</span><br><span class="line">[15:03:11]: fastlane can <span class="built_in">help</span> you with all kinds of automation <span class="keyword">for</span> your mobile app</span><br><span class="line">[15:03:11]: We recommend automating one task first, and <span class="keyword">then</span> gradually automating more over time</span><br><span class="line">[15:03:11]: What would you like to use fastlane <span class="keyword">for</span>?</span><br><span class="line">1. 📸  Automate screenshots</span><br><span class="line">2. 👩‍✈️  Automate beta distribution to TestFlight</span><br><span class="line">3. 🚀  Automate App Store distribution</span><br><span class="line">4. 🛠  Manual setup - manually setup your project to automate your tasks</span><br><span class="line">?  4</span><br><span class="line">[15:03:22]: ------------------------------------------------------------</span><br><span class="line">[15:03:22]: --- Setting up fastlane so you can manually configure it ---</span><br><span class="line">[15:03:22]: ------------------------------------------------------------</span><br><span class="line">[15:03:22]: Installing dependencies <span class="keyword">for</span> you...</span><br><span class="line">[15:03:22]: $ bundle update</span><br><span class="line">^C^C</span><br><span class="line">Cancelled... use --verbose to show the stack trace</span><br><span class="line">Jenkins:Jenkins ooops$ </span><br><span class="line">Jenkins:Jenkins ooops$ </span><br><span class="line">Jenkins:Jenkins ooops$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br><span class="line"><span class="built_in">source</span> https://gems.ruby-china.com/ already present <span class="keyword">in</span> the cache</span><br><span class="line"><span class="built_in">source</span> https://rubygems.org/ not present <span class="keyword">in</span> cache</span><br><span class="line">Jenkins:Jenkins ooops$ fastlane init</span><br><span class="line">[✔] 🚀 </span><br><span class="line">[15:10:58]: ------------------------------</span><br><span class="line">[15:10:58]: --- Step: default_platform ---</span><br><span class="line">[15:10:58]: ------------------------------</span><br><span class="line"></span><br><span class="line">--------- ios---------</span><br><span class="line">----- fastlane ios custom_lane</span><br><span class="line">Description of what the lane does</span><br><span class="line"></span><br><span class="line">Execute using `fastlane [lane_name]`</span><br><span class="line">[15:10:58]: ------------------</span><br><span class="line">[15:10:58]: fastlane is already <span class="built_in">set</span> up at path `./fastlane/`, see the available lanes above</span><br><span class="line">[15:10:58]: </span><br><span class="line">[15:10:58]: ------------------------------</span><br><span class="line">[15:10:58]: --- Where to go from here? ---</span><br><span class="line">[15:10:58]: ------------------------------</span><br><span class="line">[15:10:58]: 📸  Learn more about how to automatically generate localized App Store screenshots:</span><br><span class="line">[15:10:58]:         https://docs.fastlane.tools/getting-started/ios/screenshots/</span><br><span class="line">[15:10:58]: 👩‍✈️  Learn more about distribution to beta testing services:</span><br><span class="line">[15:10:58]:         https://docs.fastlane.tools/getting-started/ios/beta-deployment/</span><br><span class="line">[15:10:58]: 🚀  Learn more about how to automate the App Store release process:</span><br><span class="line">[15:10:58]:         https://docs.fastlane.tools/getting-started/ios/appstore-deployment/</span><br><span class="line">[15:10:58]: 👩‍⚕️  Learn more about how to setup code signing with fastlane</span><br><span class="line">[15:10:58]:         https://docs.fastlane.tools/codesigning/getting-started/</span><br><span class="line">Jenkins:Jenkins ooops$ fastlane init</span><br><span class="line">[✔] 🚀 </span><br><span class="line">[✔] Looking <span class="keyword">for</span> iOS and Android projects <span class="keyword">in</span> current directory...</span><br><span class="line">[15:40:42]: Created new folder <span class="string">&#x27;./fastlane&#x27;</span>.</span><br><span class="line">[15:40:42]: Detected an iOS/macOS project <span class="keyword">in</span> the current directory: <span class="string">&#x27;Jenkins.xcworkspace&#x27;</span></span><br><span class="line">[15:40:42]: -----------------------------</span><br><span class="line">[15:40:42]: --- Welcome to fastlane 🚀 ---</span><br><span class="line">[15:40:42]: -----------------------------</span><br><span class="line">[15:40:42]: fastlane can <span class="built_in">help</span> you with all kinds of automation <span class="keyword">for</span> your mobile app</span><br><span class="line">[15:40:42]: We recommend automating one task first, and <span class="keyword">then</span> gradually automating more over time</span><br><span class="line">[15:40:42]: What would you like to use fastlane <span class="keyword">for</span>?</span><br><span class="line">1. 📸  Automate screenshots</span><br><span class="line">2. 👩‍✈️  Automate beta distribution to TestFlight</span><br><span class="line">3. 🚀  Automate App Store distribution</span><br><span class="line">4. 🛠  Manual setup - manually setup your project to automate your tasks</span><br><span class="line">?  4</span><br><span class="line">[15:40:45]: ------------------------------------------------------------</span><br><span class="line">[15:40:45]: --- Setting up fastlane so you can manually configure it ---</span><br><span class="line">[15:40:45]: ------------------------------------------------------------</span><br><span class="line">[15:40:45]: --------------------------------------------------------</span><br><span class="line">[15:40:45]: --- ✅  Successfully generated fastlane configuration ---</span><br><span class="line">[15:40:45]: --------------------------------------------------------</span><br><span class="line">[15:40:45]: Generated Fastfile at path `./fastlane/Fastfile`</span><br><span class="line">[15:40:45]: Generated Appfile at path `./fastlane/Appfile`</span><br><span class="line">[15:40:45]: Gemfile and Gemfile.lock at path `Gemfile`</span><br><span class="line">[15:40:45]: Please check the newly generated configuration files into git along with your project</span><br><span class="line">[15:40:45]: This way everyone <span class="keyword">in</span> your team can benefit from your fastlane setup</span><br><span class="line">[15:40:45]: Continue by pressing Enter ⏎</span><br><span class="line"></span><br><span class="line">[15:40:47]: fastlane will collect the number of errors <span class="keyword">for</span> each action to detect integration issues</span><br><span class="line">[15:40:47]: No sensitive/private information will be uploaded, more information: https://docs.fastlane.tools/<span class="comment">#metrics</span></span><br><span class="line">[15:40:47]: ----------------------</span><br><span class="line">[15:40:47]: --- fastlane lanes ---</span><br><span class="line">[15:40:47]: ----------------------</span><br><span class="line">[15:40:47]: fastlane uses a `Fastfile` to store the automation configuration</span><br><span class="line">[15:40:47]: Within that, you<span class="string">&#x27;ll see different lanes.</span></span><br><span class="line"><span class="string">[15:40:47]: Each is there to automate a different task, like screenshots, code signing, or pushing new releases</span></span><br><span class="line"><span class="string">[15:40:47]: Continue by pressing Enter ⏎</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[15:40:49]: --------------------------------------</span></span><br><span class="line"><span class="string">[15:40:49]: --- How to customize your Fastfile ---</span></span><br><span class="line"><span class="string">[15:40:49]: --------------------------------------</span></span><br><span class="line"><span class="string">[15:40:49]: Use a text editor of your choice to open the newly created Fastfile and take a look</span></span><br><span class="line"><span class="string">[15:40:49]: You can now edit the available lanes and actions to customize the setup to fit your needs</span></span><br><span class="line"><span class="string">[15:40:49]: To get a list of all the available actions, open https://docs.fastlane.tools/actions</span></span><br><span class="line"><span class="string">[15:40:49]: Continue by pressing Enter ⏎</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[15:40:51]: ------------------------------</span></span><br><span class="line"><span class="string">[15:40:51]: --- Where to go from here? ---</span></span><br><span class="line"><span class="string">[15:40:51]: ------------------------------</span></span><br><span class="line"><span class="string">[15:40:51]: 📸  Learn more about how to automatically generate localized App Store screenshots:</span></span><br><span class="line"><span class="string">[15:40:51]:         https://docs.fastlane.tools/getting-started/ios/screenshots/</span></span><br><span class="line"><span class="string">[15:40:51]: 👩‍✈️  Learn more about distribution to beta testing services:</span></span><br><span class="line"><span class="string">[15:40:51]:         https://docs.fastlane.tools/getting-started/ios/beta-deployment/</span></span><br><span class="line"><span class="string">[15:40:51]: 🚀  Learn more about how to automate the App Store release process:</span></span><br><span class="line"><span class="string">[15:40:51]:         https://docs.fastlane.tools/getting-started/ios/appstore-deployment/</span></span><br><span class="line"><span class="string">[15:40:51]: 👩‍⚕️  Learn more about how to setup code signing with fastlane</span></span><br><span class="line"><span class="string">[15:40:51]:         https://docs.fastlane.tools/codesigning/getting-started/</span></span><br><span class="line"><span class="string">[15:40:51]: </span></span><br><span class="line"><span class="string">[15:40:51]: To try your new fastlane setup, just enter and run</span></span><br><span class="line"><span class="string">[15:40:51]: $ fastlane custom_lane</span></span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>fastlane custom_lane</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Jenkins:Jenkins ooops$ fastlane custom_lane</span><br><span class="line">[✔] 🚀 </span><br><span class="line">[15:41:10]: fastlane detected a Gemfile <span class="keyword">in</span> the current directory</span><br><span class="line">[15:41:10]: however it seems like you don<span class="string">&#x27;t use `bundle exec`</span></span><br><span class="line"><span class="string">[15:41:10]: to launch fastlane faster, please use</span></span><br><span class="line"><span class="string">[15:41:10]: </span></span><br><span class="line"><span class="string">[15:41:10]: $ bundle exec fastlane custom_lane</span></span><br><span class="line"><span class="string">[15:41:10]: </span></span><br><span class="line"><span class="string">[15:41:10]: Get started using a Gemfile for fastlane https://docs.fastlane.tools/getting-started/ios/setup/#use-a-gemfile</span></span><br><span class="line"><span class="string">[15:41:12]: ------------------------------</span></span><br><span class="line"><span class="string">[15:41:12]: --- Step: default_platform ---</span></span><br><span class="line"><span class="string">[15:41:12]: ------------------------------</span></span><br><span class="line"><span class="string">[15:41:12]: Driving the lane &#x27;</span>ios custom_lane<span class="string">&#x27; 🚀</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">+------+------------------+-------------+</span></span><br><span class="line"><span class="string">|           fastlane summary            |</span></span><br><span class="line"><span class="string">+------+------------------+-------------+</span></span><br><span class="line"><span class="string">| Step | Action           | Time (in s) |</span></span><br><span class="line"><span class="string">+------+------------------+-------------+</span></span><br><span class="line"><span class="string">| 1    | default_platform | 0           |</span></span><br><span class="line"><span class="string">+------+------------------+-------------+</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[15:41:12]: fastlane.tools finished successfully 🎉</span></span><br><span class="line"><span class="string">Jenkins:Jenkins ooops$ </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="ipa-可以内测分发的条件"><a href="#ipa-可以内测分发的条件" class="headerlink" title="ipa 可以内测分发的条件"></a>ipa 可以内测分发的条件</h4><p>1 - 配置必要的打包证书</p>
+<p>2 - 支持 <code>HTTPS</code> 访问的服务器</p>
+<p>3 - 一个用来提供下载 <code>ipa</code> 文件的网页</p>
+<h4 id="fastlane-脚本编写"><a href="#fastlane-脚本编写" class="headerlink" title="fastlane 脚本编写"></a>fastlane 脚本编写</h4><h6 id="修改-Fastfile-文件"><a href="#修改-Fastfile-文件" class="headerlink" title="修改 Fastfile 文件"></a>修改 <code>Fastfile</code> 文件</h6><p>初始脚本如下</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">default_platform(<span class="symbol">:ios</span>)</span><br><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">  desc <span class="string">&quot;Description of what the lane does&quot;</span></span><br><span class="line">  lane <span class="symbol">:custom_lane</span> <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>lane</code> 自定义命令</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">default_platform(<span class="symbol">:ios</span>)</span><br><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">  desc <span class="string">&quot;Description of what the lane does&quot;</span></span><br><span class="line">  lane <span class="symbol">:test</span> <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>最终脚本如下</p>
+<p>更多语法可以参考 <a target="_blank" rel="noopener" href="https://docs.fastlane.tools/">Fastlane 官方文档</a></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file contains the fastlane.tools configuration</span></span><br><span class="line"><span class="comment"># You can find the documentation at https://docs.fastlane.tools</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For a list of all available actions, check out</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     https://docs.fastlane.tools/actions</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For a list of all available plugins, check out</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     https://docs.fastlane.tools/plugins/available-plugins</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the line if you want fastlane to automatically update itself</span></span><br><span class="line"><span class="comment"># update_fastlane</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义打包平台</span></span><br><span class="line">default_platform <span class="symbol">:ios</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 蒲公英api_key和user_key</span></span><br><span class="line"><span class="comment"># 蒲公英账号</span></span><br><span class="line"><span class="comment"># api_key=&quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXX&quot;</span></span><br><span class="line"><span class="comment"># user_key=&quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXX&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务脚本 -----------------------------------</span></span><br><span class="line">platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">lane <span class="symbol">:test</span> <span class="keyword">do</span>|<span class="params">options</span>|</span><br><span class="line">branch = options[<span class="symbol">:branch</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># cocoapods 支持</span></span><br><span class="line">cocoapods(</span><br><span class="line">  <span class="symbol">clean:</span> <span class="literal">true</span>,</span><br><span class="line">  <span class="symbol">use_bundle_exec:</span> <span class="literal">false</span>,</span><br><span class="line">  <span class="symbol">podfile:</span> <span class="string">&quot;./Podfile&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># puts &quot;\n</span></span><br><span class="line"><span class="comment"># +------------------------+---------+------------------+</span></span><br><span class="line"><span class="comment"># |     \033[1;32mchoice scheme\033[0m                    |</span></span><br><span class="line"><span class="comment"># +---------------+--------+---------+------------------+</span></span><br><span class="line"><span class="comment"># | scheme        |  Index | version | Description      |</span></span><br><span class="line"><span class="comment"># +---------------+--------+---------+------------------+</span></span><br><span class="line"><span class="comment"># | development   |   1    | Test    | Test-Package     |</span></span><br><span class="line"><span class="comment"># +---------------+--------+---------+------------------+</span></span><br><span class="line"><span class="comment"># | ad-hoc        |   2    | Release | ad-hoc-Package   |</span></span><br><span class="line"><span class="comment"># +---------------+--------+---------+------------------+</span></span><br><span class="line"><span class="comment"># | app-store     |   3    | Release | app-store-Package|</span></span><br><span class="line"><span class="comment"># +---------------+--------+---------+------------------+</span></span><br><span class="line"><span class="comment"># &quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#自选scheme</span></span><br><span class="line">    <span class="comment"># schemeName 输出的ipa名称的前缀, 也是 xcode 中 scheme 的名字</span></span><br><span class="line">    <span class="comment"># export_method 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development</span></span><br><span class="line">    <span class="comment"># configuration 指定打包方式，Release 或者 Debug , Test-Debug</span></span><br><span class="line">    scheme=<span class="string">&quot;1&quot;</span><span class="comment">#STDIN.gets</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> scheme == <span class="string">&quot;1&quot;</span></span><br><span class="line"></span><br><span class="line">    schemeName = <span class="string">&quot;Jenkins&quot;</span></span><br><span class="line">    export_method = <span class="string">&quot;development&quot;</span></span><br><span class="line">    configuration = <span class="string">&quot;Test-Debug&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">elsif</span> scheme == <span class="string">&quot;2&quot;</span></span><br><span class="line"></span><br><span class="line">    schemeName = <span class="string">&quot;Jenkins&quot;</span></span><br><span class="line">    export_method = <span class="string">&quot;ad-hoc&quot;</span></span><br><span class="line">    configuration = <span class="string">&quot;Release&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">elsif</span> scheme == <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line">    schemeName = <span class="string">&quot;Jenkins&quot;</span></span><br><span class="line">    export_method = <span class="string">&quot;ad-hoc&quot;</span></span><br><span class="line">    configuration = <span class="string">&quot;Release&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">    schemeName = <span class="string">&quot;Jenkins&quot;</span></span><br><span class="line">    export_method = <span class="string">&quot;app-store&quot;</span></span><br><span class="line">    configuration = <span class="string">&quot;Release&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># puts &quot;请输入版本描述:#&#123;version&#125;&quot;</span></span><br><span class="line"></span><br><span class="line">puts <span class="string">&quot;请输入版本描述:&quot;</span></span><br><span class="line">    commit = last_git_commit</span><br><span class="line">    message = commit[<span class="symbol">:message</span>]</span><br><span class="line">    author = commit[<span class="symbol">:author</span>] <span class="comment"># author of the commit</span></span><br><span class="line">    author_email = commit[<span class="symbol">:author_email</span>] <span class="comment"># email of the author of the commit</span></span><br><span class="line">    hash = commit[<span class="symbol">:commit_hash</span>] <span class="comment"># long sha of commit</span></span><br><span class="line">    short_hash = commit[<span class="symbol">:abbreviated_commit_hash</span>] <span class="comment"># short sha of commit</span></span><br><span class="line">    <span class="comment"># desc = &quot;commit:#&#123;commit&#125;\nauthor:#&#123;author&#125;\nauthor_email:#&#123;author_email&#125;\nhash:#&#123;hash&#125;\nshort_hash:#&#123;short_hash&#125;&quot;#STDIN.gets</span></span><br><span class="line">    desc = <span class="string">&quot;<span class="subst">#&#123;message&#125;</span> &amp;#10 short_hash:<span class="subst">#&#123;short_hash&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">puts <span class="string">&quot;\n<span class="subst">#&#123;desc&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    version = get_version_number(<span class="symbol">xcodeproj:</span> <span class="string">&quot;Jenkins.xcodeproj&quot;</span>)</span><br><span class="line">    <span class="comment"># 下面的为 多 Target 的写法</span></span><br><span class="line">    <span class="comment"># version = get_version_number(xcodeproj: &quot;Jenkins.xcodeproj&quot;, target: &quot;Jenkins&quot;)</span></span><br><span class="line">    <span class="comment"># build_number = get_build_number(xcodeproj: &quot;Jenkins.xcodeproj&quot;)</span></span><br><span class="line"></span><br><span class="line">puts <span class="string">&quot;\n</span></span><br><span class="line"><span class="string">+------------------------+---------+----------------------------+</span></span><br><span class="line"><span class="string">                   \033[1;32mpacking\033[0m</span></span><br><span class="line"><span class="string">+--------------------+-----------------------+------------------+</span></span><br><span class="line"><span class="string">| schemeName            export_method          configuration    </span></span><br><span class="line"><span class="string">+--------------------+-----------------------+------------------+</span></span><br><span class="line"><span class="string">| <span class="subst">#&#123;schemeName&#125;</span>         <span class="subst">#&#123;export_method&#125;</span>          <span class="subst">#&#123;configuration&#125;</span>  </span></span><br><span class="line"><span class="string">+--------------------+-----------------------+------------------+&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#last_component_path = &quot;#&#123;version&#125;#&#123;build_number&#125;&quot;</span></span><br><span class="line">    <span class="comment"># 最后一级 url 路径 - 这里取每次 commit 的 short_hash 值</span></span><br><span class="line">    last_component_path = <span class="string">&quot;<span class="subst">#&#123;short_hash&#125;</span>&quot;</span></span><br><span class="line">    <span class="comment"># 用来提供 ipa 内测包安装地址</span></span><br><span class="line">    url_file_path = <span class="string">&quot;https://ios.xxxxx.com.cn/app&quot;</span></span><br><span class="line">    <span class="comment"># 执行 ipa 包输出在磁盘上的目录</span></span><br><span class="line">    output_dir = <span class="string">&quot;/Users/your_user_name/Library/Tomcat/webapps/app/ipa/<span class="subst">#&#123;last_component_path&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 开始打包</span></span><br><span class="line">    gym(</span><br><span class="line">    <span class="comment"># 指定scheme</span></span><br><span class="line">    <span class="symbol">scheme:</span> <span class="string">&quot;<span class="subst">#&#123;schemeName&#125;</span>&quot;</span>,</span><br><span class="line">    <span class="comment"># 输出的ipa名称</span></span><br><span class="line">    <span class="symbol">output_name:</span><span class="string">&quot;<span class="subst">#&#123;schemeName&#125;</span>&quot;</span>,</span><br><span class="line">    <span class="comment"># 是否清空以前的编译信息 true：是</span></span><br><span class="line">    <span class="symbol">clean:</span><span class="literal">true</span>,</span><br><span class="line">    <span class="comment"># 指定打包方式，Release 或者 Debug , Test-Debug</span></span><br><span class="line">    <span class="symbol">configuration:</span><span class="string">&quot;<span class="subst">#&#123;configuration&#125;</span>&quot;</span>,</span><br><span class="line">    <span class="comment"># 指定输出文件夹</span></span><br><span class="line">    <span class="symbol">output_directory:</span><span class="string">&quot;<span class="subst">#&#123;output_dir&#125;</span>&quot;</span>,</span><br><span class="line">    <span class="comment"># 包输出配置</span></span><br><span class="line">    <span class="symbol">export_options:</span> &#123;</span><br><span class="line">        <span class="comment"># 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development</span></span><br><span class="line">            <span class="symbol">method:</span><span class="string">&quot;<span class="subst">#&#123;export_method&#125;</span>&quot;</span>,</span><br><span class="line">            <span class="symbol">manifest:</span> &#123;</span><br><span class="line">                <span class="symbol">appURL:</span> <span class="string">&quot;<span class="subst">#&#123;url_file_path&#125;</span>/ipa/<span class="subst">#&#123;last_component_path&#125;</span>/<span class="subst">#&#123;schemeName&#125;</span>.ipa&quot;</span>,</span><br><span class="line">                <span class="symbol">displayImageURL:</span> <span class="string">&quot;<span class="subst">#&#123;url_file_path&#125;</span>/a.png&quot;</span>,</span><br><span class="line">                <span class="symbol">fullSizeImageURL:</span> <span class="string">&quot;<span class="subst">#&#123;url_file_path&#125;</span>/b.png&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="symbol">provisioningProfiles:</span> &#123; <span class="comment"># 此两处配置 为 打 Ad-Hoc 包使用,  需要配置 打包证书 / 描述文件 上面的 `scheme` 应该改为 3</span></span><br><span class="line">              <span class="string">&quot;your app bundle id&quot;</span> =&gt; <span class="string">&quot;Jenkins_Ad_Hoc (此处文件为评估官网下载的描述文件), 存放于对应的项目 `fastlane` 文件夹下&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="symbol">codesigning_identity:</span> <span class="string">&quot;通过钥匙串查看, 打包证书(development / distribution) 证书的常用名称&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    sh <span class="string">&quot;node /Users/your_user_name/ipa/ios.js &#x27;your_app_name&#x27; &#x27;<span class="subst">#&#123;url_file_path&#125;</span>/ipa/<span class="subst">#&#123;last_component_path&#125;</span>/<span class="subst">#&#123;schemeName&#125;</span>.ipa&#x27; &#x27;<span class="subst">#&#123;desc&#125;</span>&#x27; &#x27;<span class="subst">#&#123;version&#125;</span>&#x27; &#x27;<span class="subst">#&#123;url_file_path&#125;</span>/ipa/<span class="subst">#&#123;last_component_path&#125;</span>/manifest.plist&#x27;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># `output_dir` 中的 `app/ipa` 为 `Tomcat` 下 `webapp` 文件夹下的子文件夹 `app/ipa` 用来存储 `ipa` 文件包</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># `url_file_path` 为 本地 `Tomcat` 下的网站, 通过 `Nginx` 转发出去的内网服务器地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 由于蒲公英地址被封禁, 暂时停用</span></span><br><span class="line">    <span class="comment"># puts &quot;\n</span></span><br><span class="line">    <span class="comment"># \033[1;32m-------------------------------------------\033[0m</span></span><br><span class="line">    <span class="comment"># \033[1;32m--------- 开始上传蒲公英 ---------\033[0m</span></span><br><span class="line">    <span class="comment"># \033[1;32m-------------------------------------------\033[0m&quot;</span></span><br><span class="line">    <span class="comment"># # 开始上传蒲公英</span></span><br><span class="line">    <span class="comment"># pgyer(update_description:&quot;#&#123;desc&#125;&quot;, api_key: &quot;#&#123;api_key&#125;&quot;, user_key: &quot;#&#123;user_key&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/11/12/2019/Fastlane/" data-id="clm61xg5100089s915hoifxm2" data-title="Fastlane" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/12/2019/CI_ENV/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自用 CI 环境搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/12/2019/H5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">H5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cordova/" rel="tag">cordova</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cordova/" style="font-size: 10px;">cordova</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/11/2023/CTMediator/">CTMediator 组件完整性检查工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/DataBase/">DataBase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/CI_ENV/">自用 CI 环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/Fastlane/">Fastlane</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/12/2019/H5/">H5</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
